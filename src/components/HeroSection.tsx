@@ -161,19 +161,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Info Bar */}
-        <motion.div 
-          className="absolute bottom-8 left-6 right-6 lg:left-12 lg:right-12"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <div className="flex flex-wrap items-center justify-center gap-6 py-6 border-t border-white/20">
-            <span className="text-3xl font-display tracking-wide text-white">
-              FILIPE <span className="text-muted-foreground">NERY</span>
-            </span>
-          </div>
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.button
