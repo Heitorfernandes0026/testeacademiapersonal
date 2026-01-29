@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
+import heroTrainer from "@/assets/hero-trainer.jpg";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -22,8 +23,14 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Dark gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background" />
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroTrainer})` }}
+      />
+      
+      {/* Dark overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       
       {/* Subtle blue glow accent */}
       <motion.div 
