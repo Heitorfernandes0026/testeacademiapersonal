@@ -108,27 +108,47 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-8 bg-white" />
-                  <p className="text-xl md:text-2xl text-white font-bold tracking-wide">
-                    Um Ano de Resultados em 12 Semanas
+              <div className="flex flex-col gap-4">
+                {/* Main tagline with gradient text */}
+                <div className="flex items-start gap-4">
+                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(0 0% 50%) 100%)' }} />
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
+                    <span style={{ color: 'hsl(0 0% 70%)' }}>Treinos estratégicos para </span>
+                    <span style={{ color: 'hsl(210 100% 60%)' }}>transformar seu corpo</span>
+                    <span style={{ color: 'hsl(0 0% 70%)' }}> em até </span>
+                    <span className="relative inline-block">
+                      <span style={{ color: 'hsl(210 100% 65%)' }}>12 semanas</span>
+                      <motion.span 
+                        className="absolute -bottom-1 left-0 right-0 h-0.5"
+                        style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(0 0% 60%))' }}
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 0.8, delay: 1.2 }}
+                      />
+                    </span>
                   </p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-8 bg-white/60" />
-                  <p className="text-lg md:text-xl text-white/80 font-medium">
-                    Mais de 20.000 vidas transformadas
+                
+                {/* Secondary message */}
+                <div className="flex items-center gap-4 ml-5">
+                  <div className="w-2 h-2 rounded-full" style={{ background: 'hsl(210 100% 50%)' }} />
+                  <p className="text-lg md:text-xl font-medium" style={{ color: 'hsl(0 0% 55%)' }}>
+                    Mais de <span style={{ color: 'hsl(210 100% 60%)' }}>20.000</span> vidas transformadas
                   </p>
                 </div>
               </div>
               
-              {/* Arrow indicators */}
+              {/* Arrow indicators with gradient */}
               <div className="flex gap-2 mt-6">
                 {[0, 1, 2].map((i) => (
                   <motion.div 
                     key={i}
-                    className="w-0 h-0 border-l-[12px] border-l-white border-y-[7px] border-y-transparent"
+                    className="w-0 h-0 border-y-[7px] border-y-transparent"
+                    style={{ 
+                      borderLeftWidth: '12px',
+                      borderLeftStyle: 'solid',
+                      borderLeftColor: i === 0 ? 'hsl(210 100% 60%)' : i === 1 ? 'hsl(210 50% 55%)' : 'hsl(0 0% 50%)'
+                    }}
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
                   />
