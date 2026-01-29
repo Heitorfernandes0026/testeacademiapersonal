@@ -1,4 +1,4 @@
-import { ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
@@ -12,85 +12,89 @@ const features = [
 
 const CTASection = () => {
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
-      {/* Animated Background */}
+    <section className="py-32 bg-background relative overflow-hidden grain-overlay">
+      {/* Dramatic Background */}
       <div className="absolute inset-0">
-        {/* Moving gradient orbs */}
+        {/* Red glow */}
         <motion.div 
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+          style={{
+            background: 'radial-gradient(circle, hsl(0 85% 50% / 0.12) 0%, transparent 50%)',
           }}
-          transition={{ duration: 15, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[150px]"
           animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.6, 1, 0.6],
           }}
-          transition={{ duration: 15, repeat: Infinity }}
+          transition={{ duration: 6, repeat: Infinity }}
         />
         
-        {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/40 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        {/* Golden accent glow */}
+        <div 
+          className="absolute top-0 right-0 w-[400px] h-[400px]"
+          style={{
+            background: 'radial-gradient(circle, hsl(35 100% 50% / 0.08) 0%, transparent 60%)',
+          }}
+        />
+        
+        {/* Diagonal red slashes */}
+        <div 
+          className="absolute top-0 left-[20%] w-[60px] h-[400px] bg-primary/10"
+          style={{ transform: 'skewX(-15deg) translateY(-100px)' }}
+        />
+        <div 
+          className="absolute bottom-0 right-[15%] w-[80px] h-[300px] bg-primary/10"
+          style={{ transform: 'skewX(-15deg) translateY(100px)' }}
+        />
       </div>
+
+      {/* Energy Lines */}
+      <div className="absolute inset-0 energy-lines opacity-30" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div 
           className="relative max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           {/* Main Card */}
-          <div className="relative rounded-[3rem] overflow-hidden">
-            {/* Gradient Border */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary p-[2px] rounded-[3rem]">
-              <div className="absolute inset-[2px] bg-card rounded-[calc(3rem-2px)]" />
-            </div>
+          <div 
+            className="relative overflow-hidden"
+            style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)' }}
+          >
+            {/* Card Background with border */}
+            <div className="absolute inset-0 bg-card border-2 border-primary/30" />
+            
+            {/* Red accent corners */}
+            <div className="absolute top-0 left-0 w-32 h-1 bg-primary" />
+            <div className="absolute top-0 left-0 w-1 h-32 bg-primary" />
+            <div className="absolute top-0 right-0 w-32 h-1 bg-primary" />
+            <div className="absolute bottom-0 left-0 w-1 h-32 bg-primary" />
             
             {/* Content */}
             <div className="relative p-12 lg:p-20 text-center">
-              {/* Sparkle Icon */}
+              {/* Zap Icon */}
               <motion.div
-                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-8"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                className="inline-flex items-center justify-center w-16 h-16 mb-8 bg-primary/10 border border-primary/30"
+                style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles className="w-8 h-8 text-primary" />
+                <Zap className="w-8 h-8 text-primary" />
               </motion.div>
 
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 px-5 py-2.5 mb-8 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary"
+                className="inline-flex items-center gap-2 px-6 py-3 mb-8 bg-primary/10 border border-primary/40 text-sm text-primary font-bold tracking-widest"
+                style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", delay: 0.3 }}
               >
                 <motion.span 
-                  className="w-2 h-2 bg-primary rounded-full"
+                  className="w-2 h-2 bg-primary"
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
@@ -98,12 +102,12 @@ const CTASection = () => {
               </motion.div>
 
               {/* Heading */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-foreground mb-6 tracking-wide">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
                 PRONTO PARA SUA{" "}
                 <span className="relative inline-block">
-                  <span className="text-gradient">TRANSFORMAÇÃO?</span>
+                  <span className="text-primary electric-text">TRANSFORMAÇÃO?</span>
                   <motion.div
-                    className="absolute -inset-2 bg-primary/20 rounded-lg blur-xl -z-10"
+                    className="absolute -inset-4 bg-primary/10 blur-2xl -z-10"
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -111,7 +115,7 @@ const CTASection = () => {
               </h2>
 
               <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-                Junte-se a mais de <span className="text-primary font-semibold">500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Felipe Nery.
+                Junte-se a mais de <span className="text-primary font-bold">500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Felipe Nery.
               </p>
 
               {/* Features Grid */}
@@ -131,17 +135,21 @@ const CTASection = () => {
                 {features.map((feature, index) => (
                   <motion.div 
                     key={index} 
-                    className="flex items-center gap-3 p-3 rounded-xl bg-background/50 border border-border/30"
+                    className="flex items-center gap-3 p-3 bg-background/50 border border-border/30 hover:border-primary/40 transition-colors"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)' }}
                     variants={{
                       hidden: { opacity: 0, x: -20 },
                       visible: { opacity: 1, x: 0 }
                     }}
-                    whileHover={{ x: 5, borderColor: "hsl(var(--primary) / 0.5)" }}
+                    whileHover={{ x: 5 }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <div 
+                      className="w-6 h-6 bg-primary/20 flex items-center justify-center flex-shrink-0"
+                      style={{ clipPath: 'polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px)' }}
+                    >
                       <Check className="w-3.5 h-3.5 text-primary" />
                     </div>
-                    <span className="text-sm text-foreground/80">{feature}</span>
+                    <span className="text-sm text-foreground/80 font-medium">{feature}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -149,25 +157,22 @@ const CTASection = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.button 
-                  className="btn-cta rounded-2xl text-lg flex items-center justify-center gap-3 relative overflow-hidden group"
-                  whileHover={{ scale: 1.02 }}
+                  className="btn-cta text-lg flex items-center justify-center gap-3 relative overflow-hidden group"
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.5 }}
                   />
                   <MessageCircle className="w-5 h-5" />
                   FALAR COM FELIPE
-                  <motion.div
-                    className="absolute -inset-1 bg-primary/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity -z-10"
-                  />
                 </motion.button>
                 <motion.button 
-                  className="btn-outline rounded-2xl flex items-center justify-center gap-3 text-lg"
-                  whileHover={{ scale: 1.02 }}
+                  className="btn-outline flex items-center justify-center gap-3 text-lg"
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   VER PLANOS
@@ -177,20 +182,20 @@ const CTASection = () => {
 
               {/* Trust Badges */}
               <motion.div 
-                className="flex flex-wrap justify-center gap-6 mt-10 text-muted-foreground text-sm"
+                className="flex flex-wrap justify-center gap-8 mt-12 text-muted-foreground text-sm"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
               >
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">⚡</span> Resposta em até 2 horas
+                <span className="flex items-center gap-2 font-medium">
+                  <span className="text-primary">⚡</span> Resposta em até 2 horas
                 </span>
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">🔒</span> Seus dados estão seguros
+                <span className="flex items-center gap-2 font-medium">
+                  <span className="text-primary">🔒</span> Seus dados estão seguros
                 </span>
-                <span className="flex items-center gap-2">
-                  <span className="text-lg">💳</span> Pagamento seguro
+                <span className="flex items-center gap-2 font-medium">
+                  <span className="text-primary">💳</span> Pagamento seguro
                 </span>
               </motion.div>
             </div>
