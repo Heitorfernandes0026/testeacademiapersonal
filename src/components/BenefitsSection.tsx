@@ -96,7 +96,7 @@ const BenefitsSection = () => {
           <h2 className="section-title text-foreground">
             O MÉTODO{" "}
             <span className="relative inline-block">
-              <span style={{ color: 'hsl(210 100% 60%)' }}>FELIPE NERY</span>
+              <span style={{ color: 'hsl(210 100% 60%)' }}>FILIPE NERY</span>
               <motion.span 
                 className="absolute -bottom-2 left-0 h-1"
                 style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 65%))' }}
