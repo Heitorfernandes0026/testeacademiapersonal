@@ -19,11 +19,11 @@ const HeroSection = () => {
       </div>
       {/* Full Background Image */}
       <div 
-        className="absolute inset-0 bg-contain bg-right bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat"
         style={{ 
           backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'auto 100%',
-          backgroundPosition: 'right center',
+          backgroundSize: 'contain',
+          backgroundPosition: 'right bottom',
         }}
       />
       
