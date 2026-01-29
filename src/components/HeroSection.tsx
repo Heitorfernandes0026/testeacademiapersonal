@@ -146,7 +146,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Info Bar with Logo */}
+        {/* Bottom Info Bar */}
         <motion.div 
           className="absolute bottom-8 left-6 right-6 lg:left-12 lg:right-12"
           initial={{ opacity: 0, y: 40 }}
@@ -154,18 +154,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           <div className="flex flex-wrap items-center justify-center gap-6 py-6 border-t border-white/20">
-            {/* Logo Image */}
-            <div className="flex items-center gap-4">
-              <motion.img 
-                src={logoImage} 
-                alt="Felipe Nery Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 object-contain"
-                whileHover={{ scale: 1.05 }}
-              />
-              <span className="text-3xl font-display tracking-wide text-white">
-                FELIPE <span className="text-muted-foreground">NERY</span>
-              </span>
-            </div>
+            <span className="text-3xl font-display tracking-wide text-white">
+              FILIPE <span className="text-muted-foreground">NERY</span>
+            </span>
           </div>
         </motion.div>
 
