@@ -23,19 +23,18 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Full Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      {/* Full Background Image - High Quality */}
+      <img 
+        src={heroBackground}
+        alt="Personal Trainer"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ 
-          backgroundImage: `url(${heroBackground})`,
+          imageRendering: 'auto',
         }}
       />
       
-      {/* Brightness enhancement layer */}
-      <div className="absolute inset-0 bg-white/5" />
-      
       {/* Subtle overlay gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent" />
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
