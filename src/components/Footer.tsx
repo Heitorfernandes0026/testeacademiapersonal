@@ -34,7 +34,7 @@ const Footer = () => {
             <div className="flex items-center justify-center gap-3 mb-2">
               <div className="w-0 h-0 border-l-[14px] border-l-white border-y-[8px] border-y-transparent" />
               <h3 className="text-4xl font-display text-foreground tracking-wide">
-                FELIPE <span className="text-muted-foreground">NERY</span>
+                FILIPE <span className="text-muted-foreground">NERY</span>
               </h3>
             </div>
             <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase font-medium">Personal Trainer</p>

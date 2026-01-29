@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoImage from "@/assets/logo-reference.png";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -36,12 +37,16 @@ const Header = () => {
               e.preventDefault();
               scrollToSection("#inicio");
             }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[7px] border-y-transparent" />
+            <img 
+              src={logoImage} 
+              alt="Filipe Nery Logo" 
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            />
             <span className="text-xl font-display tracking-wide text-foreground">
-              FELIPE <span className="text-muted-foreground">NERY</span>
+              FILIPE <span className="text-muted-foreground">NERY</span>
             </span>
           </motion.a>
 
