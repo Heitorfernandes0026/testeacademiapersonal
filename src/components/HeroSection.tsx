@@ -75,19 +75,27 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            {/* Subheadline */}
+            {/* Impact Messages */}
             <motion.div 
-              className="mb-10"
+              className="mb-10 space-y-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-lg md:text-xl text-white/70 font-light">
-                Compromisso com{" "}
-                <span className="text-white font-semibold">performance</span>
-                <br />
-                e <span className="text-white font-bold">excelência.</span>
-              </p>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-8 bg-white" />
+                  <p className="text-xl md:text-2xl text-white font-bold tracking-wide">
+                    Um Ano de Resultados em 12 Semanas
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-1.5 h-8 bg-white/60" />
+                  <p className="text-lg md:text-xl text-white/80 font-medium">
+                    Mais de 20.000 vidas transformadas
+                  </p>
+                </div>
+              </div>
               
               {/* Arrow indicators */}
               <div className="flex gap-2 mt-6">
