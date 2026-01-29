@@ -14,7 +14,7 @@ const HeroSection = () => {
       <img 
         src={heroBackground}
         alt="Personal Trainer"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover"
         style={{ 
           imageRendering: 'auto',
           objectPosition: 'center 5%',
@@ -22,7 +22,7 @@ const HeroSection = () => {
       />
       
       {/* Subtle overlay gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent" />
+      <div className="absolute top-20 left-0 right-0 bottom-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent" />
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
