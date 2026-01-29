@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
-
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -8,117 +8,49 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-background relative overflow-hidden grain-overlay">
-      {/* Dramatic Lighting Background */}
-      <div className="absolute inset-0">
-        {/* Golden/warm light from top-right (sunset effect) */}
-        <div 
-          className="absolute top-0 right-0 w-[80%] h-[70%]"
-          style={{
-            background: 'radial-gradient(ellipse at top right, hsl(35 100% 50% / 0.15) 0%, hsl(25 100% 45% / 0.08) 40%, transparent 70%)',
-          }}
-        />
-        
-        {/* Red accent glow */}
-        <motion.div 
-          className="absolute bottom-0 left-1/4 w-[600px] h-[600px]"
-          style={{
-            background: 'radial-gradient(circle, hsl(0 85% 50% / 0.12) 0%, transparent 60%)',
-          }}
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.8, 1, 0.8] 
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-      </div>
+    <section className="min-h-screen relative overflow-hidden">
+      {/* Full Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: `url(${heroBackground})`,
+        }}
+      />
+      
+      {/* Dark Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+      
+      {/* Red accent glow on top of image */}
+      <motion.div 
+        className="absolute bottom-0 left-0 w-[500px] h-[500px]"
+        style={{
+          background: 'radial-gradient(circle, hsl(0 85% 50% / 0.15) 0%, transparent 60%)',
+        }}
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.6, 1, 0.6] 
+        }}
+        transition={{ duration: 4, repeat: Infinity }}
+      />
 
-      {/* Energy diagonal lines */}
-      <div className="absolute inset-0 energy-lines opacity-50" />
-
-      {/* Dramatic Red Diagonal Slashes */}
-      <motion.div 
-        className="absolute top-0 right-[15%] w-[120px] h-[500px] bg-primary/90"
-        style={{ transform: 'skewX(-15deg) translateY(-100px)' }}
-        initial={{ height: 0 }}
-        animate={{ height: 500 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      />
-      <motion.div 
-        className="absolute top-0 right-[20%] w-[40px] h-[350px] bg-primary/60"
-        style={{ transform: 'skewX(-15deg) translateY(-50px)' }}
-        initial={{ height: 0 }}
-        animate={{ height: 350 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-      />
-      <motion.div 
-        className="absolute bottom-0 left-[10%] w-[80px] h-[400px] bg-primary/40"
-        style={{ transform: 'skewX(-15deg) translateY(100px)' }}
-        initial={{ height: 0 }}
-        animate={{ height: 400 }}
-        transition={{ duration: 0.7, delay: 0.9 }}
-      />
+      {/* Subtle grain overlay */}
+      <div className="absolute inset-0 grain-overlay opacity-30" />
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
-        <div className="grid lg:grid-cols-2 min-h-screen items-center gap-8 py-20">
+        <div className="min-h-screen flex items-center py-20">
           
-          {/* Left Side - Image with Geometric Elements */}
+          {/* Content - Left aligned */}
           <motion.div 
-            className="relative order-2 lg:order-1 h-[500px] lg:h-[750px]"
-            initial={{ opacity: 0, x: -80 }}
+            className="max-w-2xl"
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            {/* Geometric aggressive shapes */}
-            <div className="absolute inset-0">
-              <svg 
-                className="absolute inset-0 w-full h-full" 
-                viewBox="0 0 400 700" 
-                preserveAspectRatio="xMidYMid slice"
-              >
-                {/* Sharp diagonal red accent - upper */}
-                <polygon 
-                  points="200,0 400,0 400,250 280,350" 
-                  className="fill-primary"
-                />
-                {/* Sharp diagonal red accent - lower */}
-                <polygon 
-                  points="250,400 400,300 400,600 320,700 220,550" 
-                  className="fill-primary/80"
-                />
-                {/* Accent orange/golden triangle */}
-                <polygon 
-                  points="350,150 400,100 400,200" 
-                  className="fill-accent"
-                />
-              </svg>
-            </div>
 
-
-            {/* Electric accent dots */}
-            <motion.div 
-              className="absolute top-20 right-16 w-4 h-4 bg-primary rounded-full animate-glow-pulse"
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-            <motion.div 
-              className="absolute top-40 right-8 w-2 h-2 bg-accent rounded-full"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.div>
-
-          {/* Right Side - Content */}
-          <motion.div 
-            className="order-1 lg:order-2 text-center lg:text-right z-20"
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
             {/* Badge */}
             <motion.div 
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/10 border border-primary/30"
+              className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/20 border border-primary/40 backdrop-blur-sm"
               style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,7 +61,7 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display text-foreground leading-[0.85] tracking-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display text-white leading-[0.9] tracking-tight mb-6">
               AQUI É LUGAR
               <br />
               <span className="relative inline-block">
@@ -145,20 +77,20 @@ const HeroSection = () => {
 
             {/* Subheadline */}
             <motion.div 
-              className="mb-12"
+              className="mb-10"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-xl md:text-2xl text-muted-foreground font-light">
+              <p className="text-lg md:text-xl text-white/70 font-light">
                 Compromisso com{" "}
-                <span className="text-foreground font-semibold">performance</span>
+                <span className="text-white font-semibold">performance</span>
                 <br />
-                e <span className="text-accent font-bold">excelência.</span>
+                e <span className="text-primary font-bold">excelência.</span>
               </p>
               
               {/* Aggressive arrow indicators */}
-              <div className="flex justify-center lg:justify-end gap-2 mt-6">
+              <div className="flex gap-2 mt-6">
                 {[0, 1, 2].map((i) => (
                   <motion.div 
                     key={i}
@@ -175,7 +107,6 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center lg:justify-end"
             >
               <motion.button 
                 className="btn-cta text-lg flex items-center gap-4 group relative"
@@ -203,19 +134,19 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <div className="flex flex-wrap items-center justify-between gap-6 py-6 border-t border-primary/20">
+          <div className="flex flex-wrap items-center justify-between gap-6 py-6 border-t border-white/20">
             {/* Logo/Brand */}
             <div className="flex items-center gap-3">
               <div className="flex items-center">
                 <div className="w-0 h-0 border-l-[16px] border-l-primary border-y-[10px] border-y-transparent" />
-                <span className="text-3xl font-display tracking-wide ml-3">
+                <span className="text-3xl font-display tracking-wide ml-3 text-white">
                   FELIPE <span className="text-primary">NERY</span>
                 </span>
               </div>
             </div>
 
             {/* Contact Info */}
-            <div className="flex flex-wrap items-center gap-8 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-8 text-sm text-white/60">
               <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 font-medium">
                 <span className="text-primary font-bold">@</span>
                 @felipenery.fit
@@ -235,7 +166,7 @@ const HeroSection = () => {
         {/* Scroll Indicator */}
         <motion.button
           onClick={scrollToNext}
-          className="absolute bottom-28 left-1/2 -translate-x-1/2 text-primary hover:text-accent transition-colors"
+          className="absolute bottom-28 left-1/2 -translate-x-1/2 text-white/80 hover:text-primary transition-colors"
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
