@@ -9,6 +9,14 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className="min-h-screen relative overflow-hidden pt-20">
+      {/* Blue Banner Strip */}
+      <div className="absolute top-20 left-0 right-0 z-20 bg-blue-900 py-2">
+        <div className="container mx-auto px-6 lg:px-12">
+          <p className="text-white text-sm font-bold tracking-[0.3em] text-center">
+            PERSONAL TRAINER
+          </p>
+        </div>
+      </div>
       {/* Full Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
