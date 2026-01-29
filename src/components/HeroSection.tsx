@@ -14,9 +14,10 @@ const HeroSection = () => {
       <img 
         src={heroBackground}
         alt="Personal Trainer"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover"
         style={{ 
           imageRendering: 'auto',
+          objectPosition: 'center 20%',
         }}
       />
       
