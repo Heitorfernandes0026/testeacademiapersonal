@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
-          backgroundImage: 'url("https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769653669_54942dc1.jpeg")',
+          backgroundImage: 'url("https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769680832_f073ec3d.jpeg")',
           backgroundPosition: '25% center'
         }}
       />
