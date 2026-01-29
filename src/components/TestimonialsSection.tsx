@@ -47,16 +47,19 @@ const TestimonialsSection = () => {
         <motion.div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
           style={{
-            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.03) 0%, transparent 50%)',
+            background: 'radial-gradient(circle, hsl(210 100% 50% / 0.06) 0%, transparent 50%)',
           }}
           animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         
-        {/* Diagonal accent */}
+        {/* Diagonal accent - Blue tinted */}
         <div 
-          className="absolute bottom-0 left-0 w-[200px] h-[500px] bg-white/5"
-          style={{ transform: 'skewX(15deg) translateX(-100px)' }}
+          className="absolute bottom-0 left-0 w-[200px] h-[500px]"
+          style={{ 
+            background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
+            transform: 'skewX(15deg) translateX(-100px)' 
+          }}
         />
       </div>
 
@@ -72,11 +75,11 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-white text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
+          <span className="text-sm font-bold uppercase tracking-[0.4em] mb-4 block" style={{ color: 'hsl(210 100% 60%)' }}>
             Depoimentos
           </span>
           <h2 className="section-title text-foreground">
-            HISTÓRIAS DE <span className="text-white">SUCESSO</span>
+            HISTÓRIAS DE <span style={{ color: 'hsl(210 100% 60%)' }}>SUCESSO</span>
           </h2>
         </motion.div>
 
@@ -95,9 +98,9 @@ const TestimonialsSection = () => {
                   className="glass-card p-12 border border-border/50 relative overflow-hidden"
                   style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)' }}
                 >
-                  {/* White accent lines */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white via-white/50 to-transparent" />
-                  <div className="absolute top-0 left-0 w-1 h-32 bg-white" />
+                  {/* Blue accent lines */}
+                  <div className="absolute top-0 left-0 w-full h-1" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 50% / 0.5), transparent)' }} />
+                  <div className="absolute top-0 left-0 w-1 h-32" style={{ background: 'hsl(210 100% 50%)' }} />
                   
                   {/* Large Quote Icon */}
                   <Quote className="absolute top-8 right-8 w-24 h-24 text-white/10" />
@@ -132,7 +135,7 @@ const TestimonialsSection = () => {
                   
                   {/* Content Section */}
                   <div className="flex-1 text-center lg:text-left">
-                    {/* Stars */}
+                    {/* Stars - Blue */}
                     <div className="flex gap-1 mb-6 justify-center lg:justify-start">
                       {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
                         <motion.div
@@ -141,7 +144,7 @@ const TestimonialsSection = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: i * 0.1 }}
                         >
-                          <Star className="w-6 h-6 fill-white text-white" />
+                          <Star className="w-6 h-6" style={{ fill: 'hsl(210 100% 60%)', color: 'hsl(210 100% 60%)' }} />
                         </motion.div>
                       ))}
                     </div>
@@ -168,23 +171,24 @@ const TestimonialsSection = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <motion.button
               onClick={prevTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-white hover:text-white hover:bg-white/10 transition-all"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center transition-all"
               style={{ clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)' }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, borderColor: 'hsl(210 100% 50%)', color: 'hsl(210 100% 60%)' }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronLeft className="w-5 h-5" />
             </motion.button>
             
-            {/* Dots */}
             <div className="flex gap-3">
               {testimonials.map((_, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`h-2 transition-all duration-300 ${
-                    index === activeIndex ? "w-10 bg-white" : "w-2 bg-muted hover:bg-white/50"
-                  }`}
+                  className="h-2 transition-all duration-300"
+                  style={{ 
+                    width: index === activeIndex ? '2.5rem' : '0.5rem',
+                    background: index === activeIndex ? 'hsl(210 100% 50%)' : 'hsl(0 0% 30%)'
+                  }}
                   whileHover={{ scale: 1.2 }}
                 />
               ))}
@@ -192,9 +196,9 @@ const TestimonialsSection = () => {
             
             <motion.button
               onClick={nextTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-white hover:text-white hover:bg-white/10 transition-all"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center transition-all"
               style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)' }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, borderColor: 'hsl(210 100% 50%)', color: 'hsl(210 100% 60%)' }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronRight className="w-5 h-5" />
