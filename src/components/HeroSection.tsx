@@ -28,21 +28,8 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Background with gradient overlay */}
-      <div className="absolute inset-0">
-        <motion.div 
-          className="absolute inset-0 bg-cover bg-center"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          style={{ 
-            backgroundImage: 'url("https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769680832_f073ec3d.jpeg")',
-          }}
-        />
-        {/* Radial gradient overlay for center focus */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_70%)]" />
-        
+      {/* Clean background with subtle gradient orbs */}
+      <div className="absolute inset-0 bg-background">
         {/* Animated gradient orbs */}
         <motion.div 
           className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"
