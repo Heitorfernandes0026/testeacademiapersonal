@@ -7,7 +7,7 @@ const testimonials = [
     name: "Lucas Silva",
     role: "Empresário",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Felipe mudou minha vida completamente. Recomendo para todos!",
+    text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Filipe mudou minha vida completamente. Recomendo para todos!",
     rating: 5,
     transformation: "+12kg de músculo",
   },

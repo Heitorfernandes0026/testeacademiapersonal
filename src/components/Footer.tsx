@@ -85,7 +85,7 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
           >
             <p className="text-muted-foreground text-sm font-medium">
-              © 2024 Felipe Nery. Todos os direitos reservados.
+              © 2024 Filipe Nery. Todos os direitos reservados.
             </p>
             <p className="text-muted-foreground/60 text-xs mt-2 flex items-center justify-center gap-1">
               Feito com <Heart className="w-3 h-3" style={{ color: 'hsl(210 100% 60%)', fill: 'hsl(210 100% 60%)' }} /> para transformar vidas

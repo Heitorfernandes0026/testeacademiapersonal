@@ -132,7 +132,7 @@ const CTASection = () => {
               </h2>
 
               <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-                Junte-se a mais de <span className="font-bold" style={{ color: 'hsl(210 100% 60%)' }}>500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Felipe Nery.
+                Junte-se a mais de <span className="font-bold" style={{ color: 'hsl(210 100% 60%)' }}>500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Filipe Nery.
               </p>
 
               {/* Features Grid */}
@@ -191,7 +191,7 @@ const CTASection = () => {
                     transition={{ duration: 0.5 }}
                   />
                   <MessageCircle className="w-5 h-5" />
-                  FALAR COM FELIPE
+                  FALAR COM FILIPE
                 </motion.button>
                 <motion.button 
                   className="btn-outline flex items-center justify-center gap-3 text-lg"
