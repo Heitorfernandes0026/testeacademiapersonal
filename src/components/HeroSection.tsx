@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
-import heroTrainer from "@/assets/hero-trainer.jpg";
+import heroBackground from "@/assets/hero-background-new.jpg";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -23,34 +23,14 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Background Image - Right side */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute right-0 top-0 bottom-0 w-full md:w-2/3 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroTrainer})` }}
-        />
-      </div>
+      {/* Full Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      />
       
-      {/* Dark overlay gradient - stronger on left for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30" />
-      
-      {/* Blue diagonal geometric shapes */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute top-20 right-[30%] w-32 md:w-48 h-[500px] md:h-[700px] opacity-80"
-          style={{
-            background: 'linear-gradient(180deg, hsl(210 100% 45%) 0%, hsl(210 100% 35%) 100%)',
-            transform: 'skewX(-15deg)',
-          }}
-        />
-        <div 
-          className="absolute top-32 right-[25%] w-16 md:w-24 h-[400px] md:h-[600px] opacity-60"
-          style={{
-            background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 40%) 100%)',
-            transform: 'skewX(-15deg)',
-          }}
-        />
-      </div>
+      {/* Dark overlay gradient for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-transparent" />
       
       {/* Subtle blue glow accent */}
       <motion.div 
