@@ -47,7 +47,7 @@ const TestimonialsSection = () => {
         <motion.div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
           style={{
-            background: 'radial-gradient(circle, hsl(0 85% 50% / 0.06) 0%, transparent 50%)',
+            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.03) 0%, transparent 50%)',
           }}
           animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
         
         {/* Diagonal accent */}
         <div 
-          className="absolute bottom-0 left-0 w-[200px] h-[500px] bg-primary/5"
+          className="absolute bottom-0 left-0 w-[200px] h-[500px] bg-white/5"
           style={{ transform: 'skewX(15deg) translateX(-100px)' }}
         />
       </div>
@@ -72,11 +72,11 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-primary text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
+          <span className="text-white text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
             Depoimentos
           </span>
           <h2 className="section-title text-foreground">
-            HISTÓRIAS DE <span className="text-primary">SUCESSO</span>
+            HISTÓRIAS DE <span className="text-white">SUCESSO</span>
           </h2>
         </motion.div>
 
@@ -91,43 +91,43 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div 
-                className="glass-card p-12 border border-border/50 relative overflow-hidden"
-                style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)' }}
-              >
-                {/* Red accent lines */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
-                <div className="absolute top-0 left-0 w-1 h-32 bg-primary" />
-                
-                {/* Large Quote Icon */}
-                <Quote className="absolute top-8 right-8 w-24 h-24 text-primary/10" />
-                
-                <div className="flex flex-col lg:flex-row gap-8 items-center">
-                  {/* Image Section */}
-                  <motion.div 
-                    className="relative flex-shrink-0"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div 
-                      className="w-32 h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-primary/50 relative"
-                      style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
-                    >
-                      <img
-                        src={testimonials[activeIndex].image}
-                        alt={testimonials[activeIndex].name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    {/* Transformation Badge */}
+                <div 
+                  className="glass-card p-12 border border-border/50 relative overflow-hidden"
+                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)' }}
+                >
+                  {/* White accent lines */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                  <div className="absolute top-0 left-0 w-1 h-32 bg-white" />
+                  
+                  {/* Large Quote Icon */}
+                  <Quote className="absolute top-8 right-8 w-24 h-24 text-white/10" />
+                  
+                  <div className="flex flex-col lg:flex-row gap-8 items-center">
+                    {/* Image Section */}
                     <motion.div 
-                      className="absolute -bottom-2 -right-2 px-4 py-2 bg-primary text-xs font-bold text-primary-foreground whitespace-nowrap"
-                      style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.3 }}
+                      className="relative flex-shrink-0"
+                      whileHover={{ scale: 1.05 }}
                     >
-                      {testimonials[activeIndex].transformation}
-                    </motion.div>
+                      <div 
+                        className="w-32 h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-white/30 relative"
+                        style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
+                      >
+                        <img
+                          src={testimonials[activeIndex].image}
+                          alt={testimonials[activeIndex].name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {/* Transformation Badge */}
+                      <motion.div 
+                        className="absolute -bottom-2 -right-2 px-4 py-2 bg-white text-xs font-bold text-background whitespace-nowrap"
+                        style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        {testimonials[activeIndex].transformation}
+                      </motion.div>
                   </motion.div>
                   
                   {/* Content Section */}
@@ -141,7 +141,7 @@ const TestimonialsSection = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: i * 0.1 }}
                         >
-                          <Star className="w-6 h-6 fill-primary text-primary" />
+                          <Star className="w-6 h-6 fill-white text-white" />
                         </motion.div>
                       ))}
                     </div>
@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <motion.button
               onClick={prevTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary hover:bg-primary/10 transition-all"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-white hover:text-white hover:bg-white/10 transition-all"
               style={{ clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)' }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -183,7 +183,7 @@ const TestimonialsSection = () => {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`h-2 transition-all duration-300 ${
-                    index === activeIndex ? "w-10 bg-primary" : "w-2 bg-muted hover:bg-primary/50"
+                    index === activeIndex ? "w-10 bg-white" : "w-2 bg-muted hover:bg-white/50"
                   }`}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -192,7 +192,7 @@ const TestimonialsSection = () => {
             
             <motion.button
               onClick={nextTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary hover:bg-primary/10 transition-all"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-white hover:text-white hover:bg-white/10 transition-all"
               style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)' }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -216,8 +216,8 @@ const TestimonialsSection = () => {
               onClick={() => setActiveIndex(index)}
               className={`p-6 border cursor-pointer transition-all duration-300 ${
                 index === activeIndex 
-                  ? "border-primary/50 bg-primary/5" 
-                  : "border-border/30 bg-background/50 hover:border-primary/30"
+                  ? "border-white/50 bg-white/5" 
+                  : "border-border/30 bg-background/50 hover:border-white/30"
               }`}
               style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)' }}
               whileHover={{ y: -5, scale: 1.02 }}
@@ -226,7 +226,7 @@ const TestimonialsSection = () => {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 object-cover border-2 border-primary/30"
+                  className="w-12 h-12 object-cover border-2 border-white/20"
                   style={{ clipPath: 'polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)' }}
                 />
                 <div>

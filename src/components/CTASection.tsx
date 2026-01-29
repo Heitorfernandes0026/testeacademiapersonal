@@ -15,11 +15,11 @@ const CTASection = () => {
     <section className="py-32 bg-background relative overflow-hidden grain-overlay">
       {/* Dramatic Background */}
       <div className="absolute inset-0">
-        {/* Red glow */}
+        {/* White glow */}
         <motion.div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
           style={{
-            background: 'radial-gradient(circle, hsl(0 85% 50% / 0.12) 0%, transparent 50%)',
+            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.06) 0%, transparent 50%)',
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -28,21 +28,21 @@ const CTASection = () => {
           transition={{ duration: 6, repeat: Infinity }}
         />
         
-        {/* Golden accent glow */}
+        {/* Subtle accent glow */}
         <div 
           className="absolute top-0 right-0 w-[400px] h-[400px]"
           style={{
-            background: 'radial-gradient(circle, hsl(35 100% 50% / 0.08) 0%, transparent 60%)',
+            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.04) 0%, transparent 60%)',
           }}
         />
         
-        {/* Diagonal red slashes */}
+        {/* Diagonal slashes */}
         <div 
-          className="absolute top-0 left-[20%] w-[60px] h-[400px] bg-primary/10"
+          className="absolute top-0 left-[20%] w-[60px] h-[400px] bg-white/5"
           style={{ transform: 'skewX(-15deg) translateY(-100px)' }}
         />
         <div 
-          className="absolute bottom-0 right-[15%] w-[80px] h-[300px] bg-primary/10"
+          className="absolute bottom-0 right-[15%] w-[80px] h-[300px] bg-white/5"
           style={{ transform: 'skewX(-15deg) translateY(100px)' }}
         />
       </div>
@@ -64,29 +64,29 @@ const CTASection = () => {
             style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)' }}
           >
             {/* Card Background with border */}
-            <div className="absolute inset-0 bg-card border-2 border-primary/30" />
+            <div className="absolute inset-0 bg-card border-2 border-white/20" />
             
-            {/* Red accent corners */}
-            <div className="absolute top-0 left-0 w-32 h-1 bg-primary" />
-            <div className="absolute top-0 left-0 w-1 h-32 bg-primary" />
-            <div className="absolute top-0 right-0 w-32 h-1 bg-primary" />
-            <div className="absolute bottom-0 left-0 w-1 h-32 bg-primary" />
+            {/* White accent corners */}
+            <div className="absolute top-0 left-0 w-32 h-1 bg-white" />
+            <div className="absolute top-0 left-0 w-1 h-32 bg-white" />
+            <div className="absolute top-0 right-0 w-32 h-1 bg-white" />
+            <div className="absolute bottom-0 left-0 w-1 h-32 bg-white" />
             
             {/* Content */}
             <div className="relative p-12 lg:p-20 text-center">
               {/* Zap Icon */}
               <motion.div
-                className="inline-flex items-center justify-center w-16 h-16 mb-8 bg-primary/10 border border-primary/30"
+                className="inline-flex items-center justify-center w-16 h-16 mb-8 bg-white/10 border border-white/20"
                 style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Zap className="w-8 h-8 text-primary" />
+                <Zap className="w-8 h-8 text-white" />
               </motion.div>
 
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 px-6 py-3 mb-8 bg-primary/10 border border-primary/40 text-sm text-primary font-bold tracking-widest"
+                className="inline-flex items-center gap-2 px-6 py-3 mb-8 bg-white/10 border border-white/30 text-sm text-white font-bold tracking-widest"
                 style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -94,7 +94,7 @@ const CTASection = () => {
                 transition={{ type: "spring", delay: 0.3 }}
               >
                 <motion.span 
-                  className="w-2 h-2 bg-primary"
+                  className="w-2 h-2 bg-white"
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
@@ -105,9 +105,9 @@ const CTASection = () => {
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
                 PRONTO PARA SUA{" "}
                 <span className="relative inline-block">
-                  <span className="text-primary electric-text">TRANSFORMAÇÃO?</span>
+                  <span className="text-white electric-text">TRANSFORMAÇÃO?</span>
                   <motion.div
-                    className="absolute -inset-4 bg-primary/10 blur-2xl -z-10"
+                    className="absolute -inset-4 bg-white/5 blur-2xl -z-10"
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -115,7 +115,7 @@ const CTASection = () => {
               </h2>
 
               <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-                Junte-se a mais de <span className="text-primary font-bold">500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Felipe Nery.
+                Junte-se a mais de <span className="text-white font-bold">500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Felipe Nery.
               </p>
 
               {/* Features Grid */}
@@ -135,7 +135,7 @@ const CTASection = () => {
                 {features.map((feature, index) => (
                   <motion.div 
                     key={index} 
-                    className="flex items-center gap-3 p-3 bg-background/50 border border-border/30 hover:border-primary/40 transition-colors"
+                    className="flex items-center gap-3 p-3 bg-background/50 border border-border/30 hover:border-white/30 transition-colors"
                     style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)' }}
                     variants={{
                       hidden: { opacity: 0, x: -20 },
@@ -144,10 +144,10 @@ const CTASection = () => {
                     whileHover={{ x: 5 }}
                   >
                     <div 
-                      className="w-6 h-6 bg-primary/20 flex items-center justify-center flex-shrink-0"
+                      className="w-6 h-6 bg-white/10 flex items-center justify-center flex-shrink-0"
                       style={{ clipPath: 'polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px)' }}
                     >
-                      <Check className="w-3.5 h-3.5 text-primary" />
+                      <Check className="w-3.5 h-3.5 text-white" />
                     </div>
                     <span className="text-sm text-foreground/80 font-medium">{feature}</span>
                   </motion.div>
@@ -189,13 +189,13 @@ const CTASection = () => {
                 transition={{ delay: 0.5 }}
               >
                 <span className="flex items-center gap-2 font-medium">
-                  <span className="text-primary">⚡</span> Resposta em até 2 horas
+                  <span className="text-white">⚡</span> Resposta em até 2 horas
                 </span>
                 <span className="flex items-center gap-2 font-medium">
-                  <span className="text-primary">🔒</span> Seus dados estão seguros
+                  <span className="text-white">🔒</span> Seus dados estão seguros
                 </span>
                 <span className="flex items-center gap-2 font-medium">
-                  <span className="text-primary">💳</span> Pagamento seguro
+                  <span className="text-white">💳</span> Pagamento seguro
                 </span>
               </motion.div>
             </div>
