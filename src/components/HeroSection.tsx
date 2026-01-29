@@ -1,66 +1,65 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import heroBackground from "@/assets/hero-background.jpg";
-import logoImage from "@/assets/logo-reference.png";
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+  
   const scrollToNext = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
+  // Simplified animations for mobile
+  const mobileAnimationConfig = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.3 }
+  };
+
   return (
     <section id="inicio" className="min-h-screen relative overflow-hidden pt-20">
-      {/* Blue Banner Strip - Enhanced */}
-      <motion.div 
+      {/* Blue Banner Strip - Simplified for mobile */}
+      <div 
         className="absolute top-20 left-0 right-0 z-20 py-2.5 overflow-hidden"
         style={{
           background: 'linear-gradient(90deg, hsl(210 100% 35%) 0%, hsl(210 100% 50%) 50%, hsl(210 100% 35%) 100%)',
-          boxShadow: '0 4px 30px hsl(210 100% 50% / 0.4), inset 0 1px 0 hsl(210 100% 70% / 0.3)',
         }}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
       >
-        {/* Shimmer effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-          animate={{ x: ['-100%', '200%'] }}
-          transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-        />
         <div className="container mx-auto px-6 lg:px-12 relative">
-          <p className="text-white text-sm font-bold tracking-[0.3em] text-center drop-shadow-lg">
+          <p className="text-white text-sm font-bold tracking-[0.3em] text-center">
             PERSONAL TRAINER
           </p>
         </div>
-      </motion.div>
-      {/* Full Background Image */}
+      </div>
+      
+      {/* Full Background Image - Optimized */}
       <div 
-        className="absolute inset-0 bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat will-change-auto"
         style={{ 
           backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'right bottom',
+          backgroundSize: isMobile ? 'cover' : 'contain',
+          backgroundPosition: isMobile ? 'center' : 'right bottom',
         }}
       />
       
       {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent md:from-black/60 md:via-black/30" />
       
-      {/* Subtle white accent glow */}
-      <motion.div 
-        className="absolute bottom-0 left-0 w-[500px] h-[500px]"
-        style={{
-          background: 'radial-gradient(circle, hsl(0 0% 100% / 0.08) 0%, transparent 60%)',
-        }}
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.4, 0.7, 0.4] 
-        }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-
-      {/* Subtle grain overlay */}
-      <div className="absolute inset-0 grain-overlay opacity-30" />
+      {/* Subtle accent glow - Only on desktop */}
+      {!isMobile && (
+        <motion.div 
+          className="absolute bottom-0 left-0 w-[500px] h-[500px]"
+          style={{
+            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.08) 0%, transparent 60%)',
+          }}
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.4, 0.7, 0.4] 
+          }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+      )}
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">

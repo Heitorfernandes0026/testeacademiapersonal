@@ -1,5 +1,6 @@
 import { ArrowRight, Check, MessageCircle, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const features = [
   "Avaliação física completa",
@@ -11,50 +12,41 @@ const features = [
 ];
 
 const CTASection = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section className="py-32 bg-background relative overflow-hidden grain-overlay">
-      {/* Dramatic Background - Blue Glow */}
-      <div className="absolute inset-0">
-        {/* Blue glow */}
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
-          style={{
-            background: 'radial-gradient(circle, hsl(210 100% 50% / 0.1) 0%, transparent 50%)',
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.6, 1, 0.6],
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-        
-        {/* Subtle accent glow */}
-        <div 
-          className="absolute top-0 right-0 w-[400px] h-[400px]"
-          style={{
-            background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
-          }}
-        />
-        
-        {/* Diagonal slashes - Blue tinted */}
-        <div 
-          className="absolute top-0 left-[20%] w-[60px] h-[400px]"
-          style={{ 
-            background: 'hsl(210 100% 50% / 0.06)',
-            transform: 'skewX(-15deg) translateY(-100px)' 
-          }}
-        />
-        <div 
-          className="absolute bottom-0 right-[15%] w-[80px] h-[300px]"
-          style={{ 
-            background: 'hsl(210 100% 50% / 0.06)',
-            transform: 'skewX(-15deg) translateY(100px)' 
-          }}
-        />
-      </div>
-
-      {/* Energy Lines */}
-      <div className="absolute inset-0 energy-lines opacity-30" />
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Background Effects - Only on desktop */}
+      {!isMobile && (
+        <div className="absolute inset-0">
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+            style={{
+              background: 'radial-gradient(circle, hsl(210 100% 50% / 0.1) 0%, transparent 50%)',
+            }}
+          />
+          <div 
+            className="absolute top-0 right-0 w-[400px] h-[400px]"
+            style={{
+              background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
+            }}
+          />
+          <div 
+            className="absolute top-0 left-[20%] w-[60px] h-[400px]"
+            style={{ 
+              background: 'hsl(210 100% 50% / 0.06)',
+              transform: 'skewX(-15deg) translateY(-100px)' 
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-[15%] w-[80px] h-[300px]"
+            style={{ 
+              background: 'hsl(210 100% 50% / 0.06)',
+              transform: 'skewX(-15deg) translateY(100px)' 
+            }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div 
