@@ -17,7 +17,7 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ 
           imageRendering: 'auto',
-          objectPosition: 'center 20%',
+          objectPosition: 'center 5%',
         }}
       />
       
