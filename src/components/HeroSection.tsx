@@ -34,42 +34,6 @@ const HeroSection = () => {
       {/* Brightness enhancement layer */}
       <div className="absolute inset-0 bg-white/5" />
       
-      {/* Diagonal Blue Stripes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top right stripe */}
-        <div 
-          className="absolute -top-20 -right-20 w-[600px] h-[120px] opacity-60"
-          style={{
-            background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.8) 0%, hsl(210 100% 60% / 0.4) 100%)',
-            transform: 'rotate(-25deg)',
-          }}
-        />
-        {/* Middle stripe */}
-        <div 
-          className="absolute top-1/3 -right-32 w-[800px] h-[80px] opacity-40"
-          style={{
-            background: 'linear-gradient(90deg, hsl(210 100% 45% / 0.6) 0%, hsl(210 100% 55% / 0.2) 100%)',
-            transform: 'rotate(-25deg)',
-          }}
-        />
-        {/* Bottom stripe */}
-        <div 
-          className="absolute bottom-1/4 -right-20 w-[500px] h-[60px] opacity-50"
-          style={{
-            background: 'linear-gradient(90deg, hsl(210 100% 50% / 0.7) 0%, hsl(210 100% 65% / 0.3) 100%)',
-            transform: 'rotate(-25deg)',
-          }}
-        />
-        {/* Thin accent stripe */}
-        <div 
-          className="absolute top-1/2 -right-10 w-[400px] h-[20px] opacity-70"
-          style={{
-            background: 'linear-gradient(90deg, hsl(210 100% 55%) 0%, transparent 100%)',
-            transform: 'rotate(-25deg)',
-          }}
-        />
-      </div>
-      
       {/* Subtle overlay gradient for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/20 to-transparent" />
 
