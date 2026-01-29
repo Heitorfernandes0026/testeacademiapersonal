@@ -1,6 +1,8 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import OptimizedImage from "./OptimizedImage";
 
 const testimonials = [
   {
@@ -31,6 +33,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const nextTestimonial = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
@@ -41,30 +44,25 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-32 bg-card relative overflow-hidden grain-overlay">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
-          style={{
-            background: 'radial-gradient(circle, hsl(210 100% 50% / 0.06) 0%, transparent 50%)',
-          }}
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        
-        {/* Diagonal accent - Blue tinted */}
-        <div 
-          className="absolute bottom-0 left-0 w-[200px] h-[500px]"
-          style={{ 
-            background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
-            transform: 'skewX(15deg) translateX(-100px)' 
-          }}
-        />
-      </div>
-
-      {/* Energy Lines */}
-      <div className="absolute inset-0 energy-lines opacity-20" />
+    <section className="py-20 md:py-32 bg-card relative overflow-hidden">
+      {/* Background Effects - Only on desktop */}
+      {!isMobile && (
+        <div className="absolute inset-0">
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
+            style={{
+              background: 'radial-gradient(circle, hsl(210 100% 50% / 0.06) 0%, transparent 50%)',
+            }}
+          />
+          <div 
+            className="absolute bottom-0 left-0 w-[200px] h-[500px]"
+            style={{ 
+              background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
+              transform: 'skewX(15deg) translateX(-100px)' 
+            }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
@@ -112,12 +110,14 @@ const TestimonialsSection = () => {
                       whileHover={{ scale: 1.05 }}
                     >
                       <div 
-                        className="w-32 h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-white/30 relative"
+                        className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-white/30 relative"
                         style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
                       >
-                        <img
+                        <OptimizedImage
                           src={testimonials[activeIndex].image}
                           alt={testimonials[activeIndex].name}
+                          width={160}
+                          height={160}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -227,9 +227,11 @@ const TestimonialsSection = () => {
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <div className="flex items-center gap-4">
-                <img
+                <OptimizedImage
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 object-cover border-2 border-white/20"
                   style={{ clipPath: 'polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)' }}
                 />

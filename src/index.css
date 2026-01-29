@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via link preload in index.html for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -195,5 +195,29 @@
 
   .electric-text {
     animation: electric-flicker 3s infinite;
+  }
+
+  /* Marquee animation - CSS-based for better performance */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .electric-text,
+    .animate-float,
+    .animate-pulse-glow {
+      animation: none;
+    }
   }
 }

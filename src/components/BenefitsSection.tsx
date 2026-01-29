@@ -1,5 +1,6 @@
 import { Target, Zap, Users, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const benefits = [
   {
@@ -29,50 +30,48 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 60, rotateX: -10 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.4,
       ease: "easeOut" as const,
     },
   },
 };
 
 const BenefitsSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section className="py-32 bg-background relative overflow-hidden grain-overlay">
-      {/* Blue Glow Effect */}
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
-        style={{
-          background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Blue Glow Effect - Only on desktop */}
+      {!isMobile && (
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+          style={{
+            background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
+          }}
+        />
+      )}
       
-      {/* Diagonal Accent - Blue */}
-      <div 
-        className="absolute top-0 right-0 w-[300px] h-[600px]"
-        style={{ 
-          background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
-          transform: 'skewX(-15deg) translateX(150px)' 
-        }}
-      />
-
-      {/* Energy Lines */}
-      <div className="absolute inset-0 energy-lines opacity-30" />
+      {/* Diagonal Accent - Only on desktop */}
+      {!isMobile && (
+        <div 
+          className="absolute top-0 right-0 w-[300px] h-[600px]"
+          style={{ 
+            background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
+            transform: 'skewX(-15deg) translateX(150px)' 
+          }}
+        />
+      )}
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
