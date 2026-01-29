@@ -41,30 +41,42 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-32 bg-card relative overflow-hidden">
+    <section className="py-32 bg-card relative overflow-hidden grain-overlay">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]"
+          style={{
+            background: 'radial-gradient(circle, hsl(0 85% 50% / 0.06) 0%, transparent 50%)',
+          }}
+          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        
+        {/* Diagonal accent */}
+        <div 
+          className="absolute bottom-0 left-0 w-[200px] h-[500px] bg-primary/5"
+          style={{ transform: 'skewX(15deg) translateX(-100px)' }}
         />
       </div>
+
+      {/* Energy Lines */}
+      <div className="absolute inset-0 energy-lines opacity-20" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-primary text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
             Depoimentos
           </span>
           <h2 className="section-title text-foreground">
-            HISTÓRIAS DE <span className="text-gradient">SUCESSO</span>
+            HISTÓRIAS DE <span className="text-primary">SUCESSO</span>
           </h2>
         </motion.div>
 
@@ -79,12 +91,16 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div className="glass-card p-12 rounded-[2rem] border border-border/50 relative overflow-hidden">
+              <div 
+                className="glass-card p-12 border border-border/50 relative overflow-hidden"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)' }}
+              >
+                {/* Red accent lines */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+                <div className="absolute top-0 left-0 w-1 h-32 bg-primary" />
+                
                 {/* Large Quote Icon */}
                 <Quote className="absolute top-8 right-8 w-24 h-24 text-primary/10" />
-                
-                {/* Gradient Accent */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
                 
                 <div className="flex flex-col lg:flex-row gap-8 items-center">
                   {/* Image Section */}
@@ -92,7 +108,10 @@ const TestimonialsSection = () => {
                     className="relative flex-shrink-0"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-primary/30 relative">
+                    <div 
+                      className="w-32 h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-primary/50 relative"
+                      style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
+                    >
                       <img
                         src={testimonials[activeIndex].image}
                         alt={testimonials[activeIndex].name}
@@ -101,7 +120,8 @@ const TestimonialsSection = () => {
                     </div>
                     {/* Transformation Badge */}
                     <motion.div 
-                      className="absolute -bottom-2 -right-2 px-4 py-2 bg-primary rounded-full text-xs font-bold text-primary-foreground whitespace-nowrap"
+                      className="absolute -bottom-2 -right-2 px-4 py-2 bg-primary text-xs font-bold text-primary-foreground whitespace-nowrap"
+                      style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.3 }}
@@ -148,7 +168,8 @@ const TestimonialsSection = () => {
           <div className="flex justify-center items-center gap-4 mt-8">
             <motion.button
               onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary hover:bg-primary/10 transition-all"
+              style={{ clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)' }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -156,13 +177,13 @@ const TestimonialsSection = () => {
             </motion.button>
             
             {/* Dots */}
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {testimonials.map((_, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeIndex ? "w-8 bg-primary" : "w-2 bg-muted"
+                  className={`h-2 transition-all duration-300 ${
+                    index === activeIndex ? "w-10 bg-primary" : "w-2 bg-muted hover:bg-primary/50"
                   }`}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -171,7 +192,8 @@ const TestimonialsSection = () => {
             
             <motion.button
               onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              className="w-12 h-12 border border-border/50 flex items-center justify-center hover:border-primary hover:text-primary hover:bg-primary/10 transition-all"
+              style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)' }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -183,7 +205,7 @@ const TestimonialsSection = () => {
         {/* Mini Cards */}
         <motion.div 
           className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -192,21 +214,23 @@ const TestimonialsSection = () => {
             <motion.div
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`p-6 rounded-2xl border cursor-pointer transition-all duration-300 ${
+              className={`p-6 border cursor-pointer transition-all duration-300 ${
                 index === activeIndex 
                   ? "border-primary/50 bg-primary/5" 
                   : "border-border/30 bg-background/50 hover:border-primary/30"
               }`}
-              whileHover={{ y: -5 }}
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)' }}
+              whileHover={{ y: -5, scale: 1.02 }}
             >
               <div className="flex items-center gap-4">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                  className="w-12 h-12 object-cover border-2 border-primary/30"
+                  style={{ clipPath: 'polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)' }}
                 />
                 <div>
-                  <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
+                  <p className="font-bold text-foreground text-sm">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
