@@ -10,14 +10,29 @@ const HeroSection = () => {
 
   return (
     <section id="inicio" className="min-h-screen relative overflow-hidden pt-20">
-      {/* Blue Banner Strip */}
-      <div className="absolute top-20 left-0 right-0 z-20 bg-blue-900 py-2">
-        <div className="container mx-auto px-6 lg:px-12">
-          <p className="text-white text-sm font-bold tracking-[0.3em] text-center">
+      {/* Blue Banner Strip - Enhanced */}
+      <motion.div 
+        className="absolute top-20 left-0 right-0 z-20 py-2.5 overflow-hidden"
+        style={{
+          background: 'linear-gradient(90deg, hsl(210 100% 35%) 0%, hsl(210 100% 50%) 50%, hsl(210 100% 35%) 100%)',
+          boxShadow: '0 4px 30px hsl(210 100% 50% / 0.4), inset 0 1px 0 hsl(210 100% 70% / 0.3)',
+        }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        {/* Shimmer effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          animate={{ x: ['-100%', '200%'] }}
+          transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+        />
+        <div className="container mx-auto px-6 lg:px-12 relative">
+          <p className="text-white text-sm font-bold tracking-[0.3em] text-center drop-shadow-lg">
             PERSONAL TRAINER
           </p>
         </div>
-      </div>
+      </motion.div>
       {/* Full Background Image */}
       <div 
         className="absolute inset-0 bg-no-repeat"
