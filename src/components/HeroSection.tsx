@@ -24,8 +24,6 @@ const HeroSection = () => {
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'contain',
           backgroundPosition: 'right bottom',
-          imageRendering: 'crisp-edges',
-          filter: 'contrast(1.05) saturate(1.1)',
         }}
       />
       
