@@ -50,11 +50,11 @@ const cardVariants = {
 const BenefitsSection = () => {
   return (
     <section className="py-32 bg-background relative overflow-hidden grain-overlay">
-      {/* Subtle White Glow */}
+      {/* Blue Glow Effect */}
       <motion.div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
         style={{
-          background: 'radial-gradient(circle, hsl(0 0% 100% / 0.04) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -62,10 +62,13 @@ const BenefitsSection = () => {
         transition={{ duration: 8, repeat: Infinity }}
       />
       
-      {/* Diagonal Accent */}
+      {/* Diagonal Accent - Blue */}
       <div 
-        className="absolute top-0 right-0 w-[300px] h-[600px] bg-white/5"
-        style={{ transform: 'skewX(-15deg) translateX(150px)' }}
+        className="absolute top-0 right-0 w-[300px] h-[600px]"
+        style={{ 
+          background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
+          transform: 'skewX(-15deg) translateX(150px)' 
+        }}
       />
 
       {/* Energy Lines */}
@@ -81,7 +84,8 @@ const BenefitsSection = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.span 
-            className="inline-block text-white text-sm font-bold uppercase tracking-[0.4em] mb-4"
+            className="inline-block text-sm font-bold uppercase tracking-[0.4em] mb-4"
+            style={{ color: 'hsl(210 100% 60%)' }}
             initial={{ opacity: 0, letterSpacing: "0.2em" }}
             whileInView={{ opacity: 1, letterSpacing: "0.4em" }}
             viewport={{ once: true }}
@@ -92,9 +96,10 @@ const BenefitsSection = () => {
           <h2 className="section-title text-foreground">
             O MÉTODO{" "}
             <span className="relative inline-block">
-              <span className="text-white">FELIPE NERY</span>
+              <span style={{ color: 'hsl(210 100% 60%)' }}>FELIPE NERY</span>
               <motion.span 
-                className="absolute -bottom-2 left-0 h-1 bg-white"
+                className="absolute -bottom-2 left-0 h-1"
+                style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 65%))' }}
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true }}
@@ -127,12 +132,12 @@ const BenefitsSection = () => {
               
               {/* Card Content */}
               <div 
-                className="relative glass-card p-8 border border-border/50 group-hover:border-white/30 transition-all duration-500 h-full"
+                className="relative glass-card p-8 border border-border/50 group-hover:border-[hsl(210,100%,50%)]/40 transition-all duration-500 h-full"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
               >
-                {/* White accent corner */}
-                <div className="absolute top-0 right-0 w-16 h-1 bg-white" />
-                <div className="absolute top-0 right-0 w-1 h-16 bg-white" />
+                {/* Blue accent corner */}
+                <div className="absolute top-0 right-0 w-16 h-1" style={{ background: 'hsl(210 100% 50%)' }} />
+                <div className="absolute top-0 right-0 w-1 h-16" style={{ background: 'hsl(210 100% 50%)' }} />
                 
                 {/* Icon Container */}
                 <motion.div 
@@ -140,16 +145,17 @@ const BenefitsSection = () => {
                   whileHover={{ rotate: [0, -5, 5, 0] }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="absolute inset-0 bg-white/10 border border-white/20" style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }} />
-                  <benefit.icon className="w-8 h-8 text-white relative z-10" />
+                  <div className="absolute inset-0 border" style={{ background: 'hsl(210 100% 50% / 0.15)', borderColor: 'hsl(210 100% 50% / 0.3)', clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }} />
+                  <benefit.icon className="w-8 h-8 relative z-10" style={{ color: 'hsl(210 100% 60%)' }} />
                 </motion.div>
                 
                 <h3 className="text-xl font-display text-foreground mb-3 tracking-wide">{benefit.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
                 
-                {/* Bottom accent line */}
+                {/* Bottom accent line - Blue */}
                 <motion.div 
-                  className="absolute bottom-0 left-0 h-1 bg-white"
+                  className="absolute bottom-0 left-0 h-1"
+                  style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 65%))' }}
                   initial={{ width: 0 }}
                   whileHover={{ width: "60%" }}
                   transition={{ duration: 0.3 }}
