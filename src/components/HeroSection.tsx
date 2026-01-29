@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
-import heroBackground from "@/assets/hero-background.png";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -19,9 +19,11 @@ const HeroSection = () => {
       </div>
       {/* Full Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-contain bg-right bg-no-repeat"
         style={{ 
           backgroundImage: `url(${heroBackground})`,
+          backgroundSize: 'auto 100%',
+          backgroundPosition: 'right center',
         }}
       />
       
