@@ -8,7 +8,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden">
+    <section id="inicio" className="min-h-screen relative overflow-hidden pt-20">
       {/* Full Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -20,15 +20,15 @@ const HeroSection = () => {
       {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
       
-      {/* Red accent glow on top of image */}
+      {/* Subtle white accent glow */}
       <motion.div 
         className="absolute bottom-0 left-0 w-[500px] h-[500px]"
         style={{
-          background: 'radial-gradient(circle, hsl(0 85% 50% / 0.15) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, hsl(0 0% 100% / 0.08) 0%, transparent 60%)',
         }}
         animate={{ 
           scale: [1, 1.1, 1],
-          opacity: [0.6, 1, 0.6] 
+          opacity: [0.4, 0.7, 0.4] 
         }}
         transition={{ duration: 4, repeat: Infinity }}
       />
@@ -50,14 +50,14 @@ const HeroSection = () => {
 
             {/* Badge */}
             <motion.div 
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-primary/20 border border-primary/40 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-white/10 border border-white/30 backdrop-blur-sm"
               style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Zap className="w-4 h-4 text-primary" />
-              <span className="text-sm font-bold text-primary tracking-widest">PERSONAL TRAINER</span>
+              <Zap className="w-4 h-4 text-white" />
+              <span className="text-sm font-bold text-white tracking-widest">PERSONAL TRAINER</span>
             </motion.div>
 
             {/* Main Headline */}
@@ -65,9 +65,9 @@ const HeroSection = () => {
               AQUI É LUGAR
               <br />
               <span className="relative inline-block">
-                <span className="text-primary electric-text">DE RESULTADO!</span>
+                <span className="text-white electric-text">DE RESULTADO!</span>
                 <motion.div 
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-primary"
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-white"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -86,15 +86,15 @@ const HeroSection = () => {
                 Compromisso com{" "}
                 <span className="text-white font-semibold">performance</span>
                 <br />
-                e <span className="text-primary font-bold">excelência.</span>
+                e <span className="text-white font-bold">excelência.</span>
               </p>
               
-              {/* Aggressive arrow indicators */}
+              {/* Arrow indicators */}
               <div className="flex gap-2 mt-6">
                 {[0, 1, 2].map((i) => (
                   <motion.div 
                     key={i}
-                    className="w-0 h-0 border-l-[12px] border-l-primary border-y-[7px] border-y-transparent"
+                    className="w-0 h-0 border-l-[12px] border-l-white border-y-[7px] border-y-transparent"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
                   />
@@ -138,25 +138,25 @@ const HeroSection = () => {
             {/* Logo/Brand */}
             <div className="flex items-center gap-3">
               <div className="flex items-center">
-                <div className="w-0 h-0 border-l-[16px] border-l-primary border-y-[10px] border-y-transparent" />
+                <div className="w-0 h-0 border-l-[16px] border-l-white border-y-[10px] border-y-transparent" />
                 <span className="text-3xl font-display tracking-wide ml-3 text-white">
-                  FELIPE <span className="text-primary">NERY</span>
+                  FELIPE <span className="text-muted-foreground">NERY</span>
                 </span>
               </div>
             </div>
 
             {/* Contact Info */}
             <div className="flex flex-wrap items-center gap-8 text-sm text-white/60">
-              <a href="#" className="hover:text-primary transition-colors flex items-center gap-2 font-medium">
-                <span className="text-primary font-bold">@</span>
+              <a href="#" className="hover:text-white transition-colors flex items-center gap-2 font-medium">
+                <span className="text-white font-bold">@</span>
                 @felipenery.fit
               </a>
-              <a href="tel:11999999999" className="hover:text-primary transition-colors flex items-center gap-2 font-medium">
-                <span className="text-primary">📞</span>
+              <a href="tel:11999999999" className="hover:text-white transition-colors flex items-center gap-2 font-medium">
+                <span className="text-white">📞</span>
                 (11) 99999-9999
               </a>
               <div className="flex items-center gap-2 font-medium">
-                <span className="text-primary">📍</span>
+                <span className="text-white">📍</span>
                 São Paulo, SP
               </div>
             </div>
@@ -166,7 +166,7 @@ const HeroSection = () => {
         {/* Scroll Indicator */}
         <motion.button
           onClick={scrollToNext}
-          className="absolute bottom-28 left-1/2 -translate-x-1/2 text-white/80 hover:text-primary transition-colors"
+          className="absolute bottom-28 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors"
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
