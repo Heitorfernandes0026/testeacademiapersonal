@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
-import heroTrainer from "@/assets/hero-trainer.jpg";
+
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -95,37 +95,6 @@ const HeroSection = () => {
               </svg>
             </div>
 
-            {/* Trainer Image with dramatic shadow */}
-            <motion.div 
-              className="absolute left-0 bottom-0 w-[85%] h-[95%] z-10"
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              <div 
-                className="w-full h-full relative"
-                style={{
-                  filter: 'contrast(1.1) saturate(1.1)',
-                }}
-              >
-                <img 
-                  src={heroTrainer} 
-                  alt="Felipe Nery - Personal Trainer"
-                  className="w-full h-full object-cover object-top"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
-                  }}
-                />
-                {/* Dramatic lighting overlay */}
-                <div 
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: 'linear-gradient(135deg, transparent 30%, hsl(0 85% 50% / 0.1) 100%)'
-                  }}
-                />
-              </div>
-            </motion.div>
 
             {/* Electric accent dots */}
             <motion.div 
