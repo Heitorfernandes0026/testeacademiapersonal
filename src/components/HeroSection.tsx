@@ -1,25 +1,14 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ChevronDown, Zap } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
-  const isMobile = useIsMobile();
-  
   const scrollToNext = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
-  // Simplified animations for mobile
-  const mobileAnimationConfig = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 0.3 }
-  };
-
   return (
-    <section id="inicio" className="min-h-screen relative overflow-hidden pt-20">
-      {/* Blue Banner Strip - Simplified for mobile */}
+    <section id="inicio" className="min-h-screen relative overflow-hidden pt-20 bg-background">
+      {/* Blue Banner Strip */}
       <div 
         className="absolute top-20 left-0 right-0 z-20 py-2.5 overflow-hidden"
         style={{
@@ -33,33 +22,21 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Full Background Image - Optimized */}
-      <div 
-        className="absolute inset-0 bg-no-repeat will-change-auto"
-        style={{ 
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: isMobile ? 'cover' : 'contain',
-          backgroundPosition: isMobile ? 'center' : 'right bottom',
+      {/* Dark gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background" />
+      
+      {/* Subtle blue glow accent */}
+      <motion.div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+        style={{
+          background: 'radial-gradient(circle, hsl(210 100% 50% / 0.08) 0%, transparent 60%)',
         }}
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.5, 0.8, 0.5] 
+        }}
+        transition={{ duration: 4, repeat: Infinity }}
       />
-      
-      {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent md:from-black/60 md:via-black/30" />
-      
-      {/* Subtle accent glow - Only on desktop */}
-      {!isMobile && (
-        <motion.div 
-          className="absolute bottom-0 left-0 w-[500px] h-[500px]"
-          style={{
-            background: 'radial-gradient(circle, hsl(0 0% 100% / 0.08) 0%, transparent 60%)',
-          }}
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.4, 0.7, 0.4] 
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-      )}
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
@@ -86,13 +63,16 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display text-white leading-[0.9] tracking-tight mb-6">
-              AQUI É LUGAR
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.9] tracking-tight mb-6">
+              <span className="text-white">AQUI É </span>
+              <span style={{ color: 'hsl(210 100% 60%)' }}>LUGAR</span>
               <br />
               <span className="relative inline-block">
-                <span className="text-white electric-text">DE RESULTADO!</span>
+                <span className="text-white">DE </span>
+                <span style={{ color: 'hsl(210 100% 60%)' }} className="electric-text">RESULTADO!</span>
                 <motion.div 
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-white"
+                  className="absolute -bottom-2 left-0 right-0 h-1"
+                  style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 70%))' }}
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -108,31 +88,23 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="flex flex-col gap-4">
-                {/* Main tagline with gradient text */}
+                {/* Main tagline with white and blue */}
                 <div className="flex items-start gap-4">
-                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(0 0% 50%) 100%)' }} />
+                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
                   <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
-                    <span style={{ color: 'hsl(0 0% 70%)' }}>Treinos estratégicos para </span>
+                    <span className="text-white">Treinos estratégicos para </span>
                     <span style={{ color: 'hsl(210 100% 60%)' }}>transformar seu corpo</span>
-                    <span style={{ color: 'hsl(0 0% 70%)' }}> em até </span>
+                    <span className="text-white"> em até </span>
                     <span className="relative inline-block">
-                      <span style={{ color: 'hsl(210 100% 65%)' }}>12 semanas</span>
+                      <span style={{ color: 'hsl(210 100% 60%)' }}>12 semanas</span>
                       <motion.span 
                         className="absolute -bottom-1 left-0 right-0 h-0.5"
-                        style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(0 0% 60%))' }}
+                        style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 70%))' }}
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
                       />
                     </span>
-                  </p>
-                </div>
-                
-                {/* Secondary message */}
-                <div className="flex items-center gap-4 ml-5">
-                  <div className="w-2 h-2 rounded-full" style={{ background: 'hsl(210 100% 50%)' }} />
-                  <p className="text-lg md:text-xl font-medium" style={{ color: 'hsl(0 0% 55%)' }}>
-                    Mais de <span style={{ color: 'hsl(210 100% 60%)' }}>20.000</span> vidas transformadas
                   </p>
                 </div>
               </div>
@@ -146,7 +118,7 @@ const HeroSection = () => {
                     style={{ 
                       borderLeftWidth: '12px',
                       borderLeftStyle: 'solid',
-                      borderLeftColor: i === 0 ? 'hsl(210 100% 60%)' : i === 1 ? 'hsl(210 50% 55%)' : 'hsl(0 0% 50%)'
+                      borderLeftColor: i === 0 ? 'hsl(210 100% 60%)' : i === 1 ? 'hsl(210 80% 55%)' : 'hsl(210 60% 45%)'
                     }}
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
