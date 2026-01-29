@@ -24,6 +24,8 @@ const HeroSection = () => {
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'contain',
           backgroundPosition: 'right bottom',
+          imageRendering: 'crisp-edges',
+          filter: 'contrast(1.05) saturate(1.1)',
         }}
       />
       
@@ -152,7 +154,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <div className="flex flex-wrap items-center justify-between gap-6 py-6 border-t border-white/20">
+          <div className="flex flex-wrap items-center justify-center gap-6 py-6 border-t border-white/20">
             {/* Logo/Brand */}
             <div className="flex items-center gap-3">
               <div className="flex items-center">
@@ -160,22 +162,6 @@ const HeroSection = () => {
                 <span className="text-3xl font-display tracking-wide ml-3 text-white">
                   FELIPE <span className="text-muted-foreground">NERY</span>
                 </span>
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="flex flex-wrap items-center gap-8 text-sm text-white/60">
-              <a href="#" className="hover:text-white transition-colors flex items-center gap-2 font-medium">
-                <span className="text-white font-bold">@</span>
-                @felipenery.fit
-              </a>
-              <a href="tel:11999999999" className="hover:text-white transition-colors flex items-center gap-2 font-medium">
-                <span className="text-white">📞</span>
-                (11) 99999-9999
-              </a>
-              <div className="flex items-center gap-2 font-medium">
-                <span className="text-white">📍</span>
-                São Paulo, SP
               </div>
             </div>
           </div>
