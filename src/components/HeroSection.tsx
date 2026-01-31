@@ -51,14 +51,14 @@ const HeroSection = () => {
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.9] tracking-tight mb-6">
               <span className="text-white">AQUI É </span>
-              <span style={{ color: 'hsl(210 100% 60%)' }}>LUGAR</span>
+              <span style={{ color: 'hsl(270 100% 60%)' }}>LUGAR</span>
               <br />
               <span className="relative inline-block">
                 <span className="text-white">DE </span>
-                <span style={{ color: 'hsl(210 100% 60%)' }} className="electric-text">RESULTADO!</span>
+                <span style={{ color: 'hsl(270 100% 60%)' }} className="electric-text">RESULTADO!</span>
                 <motion.div 
                   className="absolute -bottom-2 left-0 right-0 h-1"
-                  style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 70%))' }}
+                  style={{ background: 'linear-gradient(90deg, hsl(270 100% 50%), hsl(270 100% 70%))' }}
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 1 }}
@@ -74,18 +74,18 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="flex flex-col gap-4">
-                {/* Main tagline with white and blue */}
+                {/* Main tagline with white and purple */}
                 <div className="flex items-start gap-4">
-                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
+                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(270 100% 50%) 0%, hsl(270 100% 35%) 100%)' }} />
                   <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
                     <span className="text-white">Treinos estratégicos para </span>
-                    <span style={{ color: 'hsl(210 100% 60%)' }}>transformar seu corpo</span>
+                    <span style={{ color: 'hsl(270 100% 60%)' }}>transformar seu corpo</span>
                     <span className="text-white"> em até </span>
                     <span className="relative inline-block">
-                      <span style={{ color: 'hsl(210 100% 60%)' }}>12 semanas</span>
+                      <span style={{ color: 'hsl(270 100% 60%)' }}>12 semanas</span>
                       <motion.span 
                         className="absolute -bottom-1 left-0 right-0 h-0.5"
-                        style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 70%))' }}
+                        style={{ background: 'linear-gradient(90deg, hsl(270 100% 50%), hsl(270 100% 70%))' }}
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
@@ -104,7 +104,7 @@ const HeroSection = () => {
                     style={{ 
                       borderLeftWidth: '12px',
                       borderLeftStyle: 'solid',
-                      borderLeftColor: i === 0 ? 'hsl(210 100% 60%)' : i === 1 ? 'hsl(210 80% 55%)' : 'hsl(210 60% 45%)'
+                      borderLeftColor: i === 0 ? 'hsl(270 100% 60%)' : i === 1 ? 'hsl(270 80% 55%)' : 'hsl(270 60% 45%)'
                     }}
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}

@@ -36,18 +36,18 @@
 
     --radius: 0.5rem;
 
-    /* Custom tokens - Blue Premium */
-    --blue-accent: 210 100% 50%;
-    --blue-accent-dark: 210 100% 35%;
-    --blue-accent-light: 210 100% 65%;
+    /* Custom tokens - Purple Premium */
+    --purple-accent: 270 100% 50%;
+    --purple-accent-dark: 270 100% 35%;
+    --purple-accent-light: 270 100% 65%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(210 100% 50% / 0.1) 0%, hsl(210 100% 35% / 0.05) 50%, transparent 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 100% 70%) 100%);
-    --gradient-golden: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 100% 80%) 100%);
-    --gradient-blue-glow: radial-gradient(circle, hsl(210 100% 50% / 0.15) 0%, transparent 60%);
-    --shadow-glow: 0 0 60px hsl(210 100% 50% / 0.3);
-    --shadow-glow-intense: 0 0 100px hsl(210 100% 50% / 0.5);
+    --gradient-hero: linear-gradient(135deg, hsl(270 100% 50% / 0.1) 0%, hsl(270 100% 35% / 0.05) 50%, transparent 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(270 100% 50%) 0%, hsl(270 100% 35%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(270 100% 70%) 100%);
+    --gradient-golden: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(270 100% 80%) 100%);
+    --gradient-purple-glow: radial-gradient(circle, hsl(270 100% 50% / 0.15) 0%, transparent 60%);
+    --shadow-glow: 0 0 60px hsl(270 100% 50% / 0.3);
+    --shadow-glow-intense: 0 0 100px hsl(270 100% 50% / 0.5);
     --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
   }
 }
@@ -125,19 +125,19 @@
     clip-path: polygon(0 0, 100% 80px, 100% 100%, 0 100%);
   }
 
-  /* Accent slash - blue gradient */
+  /* Accent slash - purple gradient */
   .accent-slash {
-    background: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%);
+    background: linear-gradient(135deg, hsl(270 100% 50%) 0%, hsl(270 100% 35%) 100%);
     transform: skewX(-15deg);
   }
   
-  /* Blue accent utilities */
-  .blue-glow {
-    background: var(--gradient-blue-glow);
+  /* Purple accent utilities */
+  .purple-glow {
+    background: var(--gradient-purple-glow);
   }
   
-  .blue-accent-bar {
-    background: linear-gradient(90deg, hsl(210 100% 35%) 0%, hsl(210 100% 50%) 50%, hsl(210 100% 35%) 100%);
+  .purple-accent-bar {
+    background: linear-gradient(90deg, hsl(270 100% 35%) 0%, hsl(270 100% 50%) 50%, hsl(270 100% 35%) 100%);
   }
 
   /* Film grain effect */
@@ -155,14 +155,14 @@
     mix-blend-mode: overlay;
   }
 
-  /* Energy lines effect - blue tinted */
+  /* Energy lines effect - purple tinted */
   .energy-lines {
     background: repeating-linear-gradient(
       -60deg,
       transparent,
       transparent 10px,
-      hsl(210 100% 50% / 0.03) 10px,
-      hsl(210 100% 50% / 0.03) 20px
+      hsl(270 100% 50% / 0.03) 10px,
+      hsl(270 100% 50% / 0.03) 20px
     );
   }
 
