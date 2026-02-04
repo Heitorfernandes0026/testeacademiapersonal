@@ -7,7 +7,7 @@ import testimonial02 from "@/assets/testimonial-02.jpg";
 import testimonial03 from "@/assets/testimonial-03.jpg";
 import testimonial04 from "@/assets/testimonial-04.jpg";
 import testimonial05 from "@/assets/testimonial-05.jpg";
-
+import testimonial06 from "@/assets/testimonial-06.png";
 const testimonials = [
   {
     name: "Lucas Silva",
@@ -48,6 +48,14 @@ const testimonials = [
     text: "Método eficiente e resultados reais. Melhor investimento que já fiz.",
     rating: 5,
     transformation: "+8kg músculo",
+  },
+  {
+    name: "Fernanda Lima",
+    role: "Nutricionista",
+    image: testimonial06,
+    text: "Resultados que eu nunca imaginei alcançar. Gratidão por essa transformação!",
+    rating: 5,
+    transformation: "Transformação total",
   },
 ];
 
