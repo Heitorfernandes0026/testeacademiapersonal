@@ -1,6 +1,7 @@
 import { Check, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
+import messageVideo from "@/assets/message-video.mp4";
 
 const differentials = [
   "Avaliação física completa",
@@ -51,56 +52,52 @@ const MessageSection = () => {
                 aspectRatio: '9/16'
               }}
             >
-              {/* Placeholder for video - will be replaced when video is uploaded */}
-              <div className="w-full h-full flex items-center justify-center bg-card">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-contain"
-                  controls={isPlaying}
-                  onEnded={() => setIsPlaying(false)}
-                  playsInline
-                >
-                  {/* Video source will be added when uploaded */}
-                </video>
+              <video
+                ref={videoRef}
+                src={messageVideo}
+                className="w-full h-full object-contain"
+                controls={isPlaying}
+                onEnded={() => setIsPlaying(false)}
+                playsInline
+              />
                 
-                {/* Play Button Overlay */}
-                {!isPlaying && (
-                  <motion.div 
-                    className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 cursor-pointer"
-                    onClick={handlePlayVideo}
-                    whileHover={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
+              {/* Play Button Overlay */}
+              {!isPlaying && (
+                <motion.div 
+                  className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 cursor-pointer"
+                  onClick={handlePlayVideo}
+                  whileHover={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
+                >
+                  <motion.div
+                    className="flex items-center justify-center w-20 h-20 rounded-full border-2"
+                    style={{ 
+                      background: 'hsl(210 100% 50% / 0.9)',
+                      borderColor: 'hsl(210 100% 70%)',
+                      boxShadow: '0 0 40px hsl(210 100% 50% / 0.5)'
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{ 
+                      boxShadow: [
+                        '0 0 20px hsl(210 100% 50% / 0.5)',
+                        '0 0 40px hsl(210 100% 50% / 0.7)',
+                        '0 0 20px hsl(210 100% 50% / 0.5)'
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <motion.div
-                      className="flex items-center justify-center w-20 h-20 rounded-full border-2"
-                      style={{ 
-                        background: 'hsl(210 100% 50% / 0.9)',
-                        borderColor: 'hsl(210 100% 70%)',
-                        boxShadow: '0 0 40px hsl(210 100% 50% / 0.5)'
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      animate={{ 
-                        boxShadow: [
-                          '0 0 20px hsl(210 100% 50% / 0.5)',
-                          '0 0 40px hsl(210 100% 50% / 0.7)',
-                          '0 0 20px hsl(210 100% 50% / 0.5)'
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
-                    </motion.div>
-                    
-                    <motion.p 
-                      className="mt-4 text-white font-bold text-base tracking-wide text-center px-4"
-                      animate={{ opacity: [0.7, 1, 0.7] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      MENSAGEM DO FILIPE
-                    </motion.p>
+                    <Play className="w-10 h-10 text-white ml-1" fill="white" />
                   </motion.div>
-                )}
-              </div>
+                  
+                  <motion.p 
+                    className="mt-4 text-white font-bold text-base tracking-wide text-center px-4"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    MENSAGEM DO FILIPE
+                  </motion.p>
+                </motion.div>
+              )}
 
               {/* Decorative corners */}
               <div className="absolute top-0 left-0 w-16 h-1" style={{ background: 'hsl(210 100% 50%)' }} />
