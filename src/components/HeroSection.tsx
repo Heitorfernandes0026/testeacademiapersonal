@@ -19,6 +19,8 @@ const HeroSection = () => {
           imageRendering: 'auto',
           objectPosition: 'center 5%',
         }}
+        fetchPriority="high"
+        decoding="async"
       />
       
       {/* Subtle overlay gradient for text readability */}
@@ -49,7 +51,7 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.9] tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.9] tracking-tight mb-4 md:mb-6">
               <span className="text-white">AQUI É </span>
               <span style={{ color: 'hsl(210 100% 60%)' }}>LUGAR</span>
               <br />
@@ -68,16 +70,16 @@ const HeroSection = () => {
 
             {/* Impact Messages */}
             <motion.div 
-              className="mb-10 space-y-4"
+              className="mb-6 md:mb-10 space-y-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="flex flex-col gap-4">
                 {/* Main tagline with white and blue */}
-                <div className="flex items-start gap-4">
-                  <div className="w-1 h-16 mt-1" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
-                  <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-1 h-12 md:h-16 mt-1 flex-shrink-0" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
+                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
                     <span className="text-white">Treinos estratégicos para </span>
                     <span style={{ color: 'hsl(210 100% 60%)' }}>transformar seu corpo</span>
                     <span className="text-white"> em até </span>

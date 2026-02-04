@@ -126,7 +126,7 @@ const MessageSection = () => {
               DIFERENCIAIS
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-6 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4 md:mb-6 tracking-tight">
               POR QUE ESCOLHER O{" "}
               <span style={{ color: 'hsl(210 100% 60%)' }}>MÉTODO FILIPE NERY?</span>
             </h2>

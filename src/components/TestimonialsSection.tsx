@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         {/* Testimonials Grid - Before/After Focus */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -117,6 +117,8 @@ const TestimonialsSection = () => {
                     src={testimonial.image}
                     alt={`Transformação de ${testimonial.name}`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Gradient Overlay */}
