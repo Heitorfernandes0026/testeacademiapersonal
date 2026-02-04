@@ -1,9 +1,20 @@
-import { Zap } from "lucide-react";
+import { Play, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useState, useRef } from "react";
+import ctaVideo from "@/assets/cta-video.mp4";
 
 const CTASection = () => {
   const isMobile = useIsMobile();
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
   
   return (
     <section className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -62,7 +73,7 @@ const CTASection = () => {
             <div className="absolute bottom-0 left-0 w-1 h-32" style={{ background: 'hsl(210 100% 50%)' }} />
             
             {/* Content */}
-            <div className="relative p-12 lg:p-20 text-center">
+            <div className="relative p-8 md:p-12 lg:p-20 text-center">
               {/* Zap Icon */}
               <motion.div
                 className="inline-flex items-center justify-center w-16 h-16 mb-8 border"
@@ -78,7 +89,7 @@ const CTASection = () => {
               </motion.div>
 
               {/* Heading */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
                 PRONTO PARA SUA{" "}
                 <span className="relative inline-block">
                   <span className="electric-text" style={{ color: 'hsl(210 100% 60%)' }}>TRANSFORMAÇÃO?</span>
@@ -91,9 +102,71 @@ const CTASection = () => {
                 </span>
               </h2>
 
-              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
                 Junte-se a mais de <span className="font-bold" style={{ color: 'hsl(210 100% 60%)' }}>500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Filipe Nery.
               </p>
+
+              {/* Video Section */}
+              <motion.div 
+                className="relative max-w-3xl mx-auto rounded-lg overflow-hidden"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                {/* Video Container */}
+                <div 
+                  className="relative aspect-video border-2 rounded-lg overflow-hidden"
+                  style={{ borderColor: 'hsl(210 100% 50% / 0.4)' }}
+                >
+                  <video
+                    ref={videoRef}
+                    src={ctaVideo}
+                    className="w-full h-full object-cover"
+                    controls={isPlaying}
+                    onEnded={() => setIsPlaying(false)}
+                    playsInline
+                  />
+                  
+                  {/* Play Button Overlay */}
+                  {!isPlaying && (
+                    <motion.div 
+                      className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 cursor-pointer"
+                      onClick={handlePlayVideo}
+                      whileHover={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+                    >
+                      <motion.div
+                        className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full border-2"
+                        style={{ 
+                          background: 'hsl(210 100% 50% / 0.9)',
+                          borderColor: 'hsl(210 100% 70%)',
+                          boxShadow: '0 0 40px hsl(210 100% 50% / 0.5)'
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        animate={{ 
+                          boxShadow: [
+                            '0 0 20px hsl(210 100% 50% / 0.5)',
+                            '0 0 40px hsl(210 100% 50% / 0.7)',
+                            '0 0 20px hsl(210 100% 50% / 0.5)'
+                          ]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        <Play className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="white" />
+                      </motion.div>
+                      
+                      <motion.p 
+                        className="mt-6 text-white font-bold text-lg md:text-xl tracking-wide"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        APERTE PLAY E DESCUBRA
+                      </motion.p>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
