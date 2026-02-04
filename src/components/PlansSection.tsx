@@ -113,7 +113,7 @@ const PlansSection = () => {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, planIndex) => (
             <motion.div
               key={planIndex}
@@ -148,19 +148,19 @@ const PlansSection = () => {
                   </h3>
 
                   {/* Pricing Options */}
-                  <div className="grid grid-cols-3 gap-3 mb-10">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8 md:mb-10">
                     {plan.prices.map((priceOption, priceIndex) => (
                       <div
                         key={priceIndex}
-                        className="text-center p-4 rounded-lg border"
+                        className="text-center p-2 sm:p-4 rounded-lg border"
                         style={{
                           background: 'hsl(210 50% 10% / 0.5)',
                           borderColor: 'hsl(210 100% 50% / 0.3)',
                         }}
                       >
-                        <p className="text-sm text-muted-foreground mb-2">{priceOption.period}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-1 sm:mb-2">{priceOption.period}</p>
                         <p 
-                          className="text-lg md:text-xl font-bold"
+                          className="text-sm sm:text-lg md:text-xl font-bold"
                           style={{ color: 'hsl(210 100% 60%)' }}
                         >
                           {priceOption.price}

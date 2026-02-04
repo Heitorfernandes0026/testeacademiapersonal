@@ -38,7 +38,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-foreground mb-4 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-foreground mb-4 tracking-tight">
               PRONTO PARA{" "}
               <span className="block" style={{ color: 'hsl(210 100% 60%)' }}>COMEÇAR?</span>
             </h2>
@@ -141,6 +141,8 @@ const ContactSection = () => {
                 src={contactFilipe} 
                 alt="Filipe Nery - Personal Trainer"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
 
               {/* Decorative blue accent lines */}

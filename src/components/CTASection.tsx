@@ -89,7 +89,7 @@ const CTASection = () => {
               </motion.div>
 
               {/* Heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display text-foreground mb-4 md:mb-6 tracking-tight">
                 PRONTO PARA SUA{" "}
                 <span className="relative inline-block">
                   <span className="electric-text" style={{ color: 'hsl(210 100% 60%)' }}>TRANSFORMAÇÃO?</span>
