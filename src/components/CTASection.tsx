@@ -108,21 +108,25 @@ const CTASection = () => {
 
               {/* Video Section */}
               <motion.div 
-                className="relative max-w-3xl mx-auto rounded-lg overflow-hidden"
+                className="relative w-full max-w-4xl mx-auto"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                {/* Video Container */}
+                {/* Video Container - aspect ratio for vertical video (9:16) */}
                 <div 
-                  className="relative aspect-video border-2 rounded-lg overflow-hidden"
-                  style={{ borderColor: 'hsl(210 100% 50% / 0.4)' }}
+                  className="relative mx-auto border-2 rounded-xl overflow-hidden bg-black"
+                  style={{ 
+                    borderColor: 'hsl(210 100% 50% / 0.4)',
+                    maxWidth: '400px',
+                    aspectRatio: '9/16'
+                  }}
                 >
                   <video
                     ref={videoRef}
                     src={ctaVideo}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     controls={isPlaying}
                     onEnded={() => setIsPlaying(false)}
                     playsInline
@@ -131,9 +135,9 @@ const CTASection = () => {
                   {/* Play Button Overlay */}
                   {!isPlaying && (
                     <motion.div 
-                      className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 cursor-pointer"
+                      className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 cursor-pointer"
                       onClick={handlePlayVideo}
-                      whileHover={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+                      whileHover={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
                     >
                       <motion.div
                         className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full border-2"
