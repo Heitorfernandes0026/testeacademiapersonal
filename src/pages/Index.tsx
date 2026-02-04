@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import MessageSection from "@/components/MessageSection";
 import PlansSection from "@/components/PlansSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       <div id="planos">
         <PlansSection />
       </div>
+      <ContactSection />
       <Footer />
     </div>
   );
