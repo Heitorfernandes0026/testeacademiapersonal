@@ -24,13 +24,13 @@ const Index = () => {
       <div id="depoimentos">
         <TestimonialsSection />
       </div>
-      <div id="planos">
-        <PlansSection />
-      </div>
       <div id="contato">
         <CTASection />
       </div>
       <MessageSection />
+      <div id="planos">
+        <PlansSection />
+      </div>
       <Footer />
     </div>
   );
