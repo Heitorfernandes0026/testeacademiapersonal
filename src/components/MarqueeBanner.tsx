@@ -14,7 +14,7 @@ const MarqueeBanner = () => {
     <div 
       className="w-full py-3 overflow-hidden relative"
       style={{
-        background: 'linear-gradient(90deg, hsl(var(--blue-accent-dark)) 0%, hsl(var(--blue-accent)) 50%, hsl(var(--blue-accent-dark)) 100%)',
+        background: 'linear-gradient(90deg, hsl(210 100% 40%) 0%, hsl(210 100% 50%) 50%, hsl(210 100% 40%) 100%)',
       }}
     >
       <div

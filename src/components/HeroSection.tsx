@@ -120,14 +120,17 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.button 
-                className="btn-cta text-lg flex items-center gap-4 group relative"
+                className="text-lg flex items-center gap-4 group relative px-8 py-4 font-bold bg-white text-background hover:bg-white/90 transition-all"
+                style={{ 
+                  clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <MessageCircle className="w-6 h-6 transition-transform group-hover:rotate-12" />
                 <span className="font-bold">COMECE AGORA</span>
                 <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent"
                   style={{ clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)' }}
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "100%" }}
