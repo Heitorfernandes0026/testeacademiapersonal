@@ -7,13 +7,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const images = [
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212659783_f7cd8422.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660618_a0c7666d.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660937_4f9aeffe.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212662155_52bcff46.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212662576_ab7065f1.jpeg",
-];
+import aboutFilipe01 from "@/assets/about-filipe-01.jpg";
+import aboutFilipe02 from "@/assets/about-filipe-02.jpg";
+import aboutFilipe03 from "@/assets/about-filipe-03.jpg";
+import aboutFilipe04 from "@/assets/about-filipe-04.jpg";
+
+const images = [aboutFilipe01, aboutFilipe02, aboutFilipe03, aboutFilipe04];
 
 const AboutSection = () => {
   return (
