@@ -29,6 +29,7 @@ const Index = () => {
         <CTASection />
       </div>
       <MessageSection />
+      <MarqueeBanner />
       <div id="planos">
         <PlansSection />
       </div>
