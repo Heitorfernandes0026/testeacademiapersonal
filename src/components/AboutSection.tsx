@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -36,7 +37,18 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <Carousel className="w-full max-w-lg mx-auto">
+            <Carousel 
+              className="w-full max-w-lg mx-auto"
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                  stopOnInteraction: true,
+                }),
+              ]}
+              opts={{
+                loop: true,
+              }}
+            >
               <CarouselContent>
                 {images.map((src, index) => (
                   <CarouselItem key={index}>
