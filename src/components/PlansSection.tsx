@@ -113,11 +113,11 @@ const PlansSection = () => {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, planIndex) => (
             <motion.div
               key={planIndex}
-              className="relative"
+              className="relative h-full"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -125,7 +125,7 @@ const PlansSection = () => {
             >
               {/* Plan Card */}
               <div 
-                className="relative overflow-hidden rounded-2xl border"
+                className="relative overflow-hidden rounded-2xl border h-full flex flex-col"
                 style={{ 
                   background: 'linear-gradient(180deg, hsl(210 50% 8%) 0%, hsl(210 50% 5%) 100%)',
                   borderColor: 'hsl(210 100% 50% / 0.2)',
@@ -141,7 +141,7 @@ const PlansSection = () => {
                   />
                 )}
 
-                <div className="relative p-8 md:p-10">
+                <div className="relative p-8 md:p-10 flex flex-col flex-1">
                   {/* Plan Name */}
                   <h3 className="text-2xl md:text-3xl font-display text-foreground text-center mb-8 tracking-wide">
                     {plan.name}
@@ -170,7 +170,7 @@ const PlansSection = () => {
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-6 mb-10">
+                  <div className="space-y-6 mb-10 flex-1">
                     {plan.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex gap-4">
                         <div className="flex-shrink-0 mt-1">
@@ -193,7 +193,7 @@ const PlansSection = () => {
 
                   {/* CTA Button */}
                   <motion.button
-                    className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all"
+                    className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all mt-auto"
                     style={{
                       background: 'linear-gradient(90deg, hsl(210 100% 45%) 0%, hsl(210 100% 55%) 100%)',
                       boxShadow: '0 4px 20px hsl(210 100% 50% / 0.3)',
