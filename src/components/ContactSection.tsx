@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import contactFilipe from "@/assets/contact-filipe.jpg";
 const ContactSection = () => {
   return (
     <section className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -134,23 +134,14 @@ const ContactSection = () => {
                 width: '100%',
                 maxWidth: '400px',
                 aspectRatio: '3/4',
-                background: 'linear-gradient(180deg, hsl(210 50% 12%) 0%, hsl(210 50% 8%) 100%)',
               }}
             >
-              {/* Placeholder content */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <div 
-                    className="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center"
-                    style={{ background: 'hsl(210 100% 50% / 0.1)' }}
-                  >
-                    <svg className="w-12 h-12" style={{ color: 'hsl(210 100% 50% / 0.4)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm">Foto do Personal</p>
-                </div>
-              </div>
+              {/* Personal trainer image */}
+              <img 
+                src={contactFilipe} 
+                alt="Filipe Nery - Personal Trainer"
+                className="w-full h-full object-cover"
+              />
 
               {/* Decorative blue accent lines */}
               <div className="absolute top-0 right-0 w-1 h-full" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, transparent 100%)' }} />
