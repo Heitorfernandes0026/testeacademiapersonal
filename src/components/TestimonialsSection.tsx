@@ -8,7 +8,7 @@ const testimonials = [
   {
     name: "Lucas Silva",
     role: "Empresário",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212659783_f7cd8422.jpeg",
     text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Filipe mudou minha vida completamente. Recomendo para todos!",
     rating: 5,
     transformation: "+12kg de músculo",
@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Marina Costa",
     role: "Advogada",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660618_a0c7666d.jpeg",
     text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional e o método funciona de verdade.",
     rating: 5,
     transformation: "-18kg em 4 meses",
@@ -24,7 +24,7 @@ const testimonials = [
   {
     name: "Pedro Santos",
     role: "Médico",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660937_4f9aeffe.jpeg",
     text: "Profissional incrível! Mesmo com minha rotina corrida, consegui encaixar os treinos e ver resultados impressionantes.",
     rating: 5,
     transformation: "Definição total",

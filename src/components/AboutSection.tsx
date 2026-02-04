@@ -8,10 +8,11 @@ import {
 } from "@/components/ui/carousel";
 
 const images = [
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769691604_109a3b76.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769691606_357eea3a.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769691607_808285a1.jpeg",
-  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/img_1769691609_d0c0bfa6.jpeg",
+  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212659783_f7cd8422.jpeg",
+  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660618_a0c7666d.jpeg",
+  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660937_4f9aeffe.jpeg",
+  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212662155_52bcff46.jpeg",
+  "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212662576_ab7065f1.jpeg",
 ];
 
 const AboutSection = () => {
