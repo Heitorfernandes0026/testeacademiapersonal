@@ -1,51 +1,44 @@
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import OptimizedImage from "./OptimizedImage";
+
+import testimonial01 from "@/assets/about-filipe-01.jpg";
+import testimonial02 from "@/assets/about-filipe-02.jpg";
+import testimonial03 from "@/assets/about-filipe-03.jpg";
 
 const testimonials = [
   {
     name: "Lucas Silva",
     role: "Empresário",
-    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212659783_f7cd8422.jpeg",
-    text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Filipe mudou minha vida completamente. Recomendo para todos!",
+    image: testimonial01,
+    text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Filipe mudou minha vida completamente.",
     rating: 5,
     transformation: "+12kg de músculo",
   },
   {
     name: "Marina Costa",
     role: "Advogada",
-    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660618_a0c7666d.jpeg",
-    text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional e o método funciona de verdade.",
+    image: testimonial02,
+    text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional.",
     rating: 5,
     transformation: "-18kg em 4 meses",
   },
   {
     name: "Pedro Santos",
     role: "Médico",
-    image: "https://tgprvcodlwyfxjbxirgh.supabase.co/storage/v1/object/public/lovable-uploads/lovable_1770212660937_4f9aeffe.jpeg",
-    text: "Profissional incrível! Mesmo com minha rotina corrida, consegui encaixar os treinos e ver resultados impressionantes.",
+    image: testimonial03,
+    text: "Profissional incrível! Mesmo com minha rotina corrida, consegui ver resultados impressionantes.",
     rating: 5,
     transformation: "Definição total",
   },
 ];
 
 const TestimonialsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useIsMobile();
-
-  const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
 
   return (
     <section className="py-20 md:py-32 bg-card relative overflow-hidden">
-      {/* Background Effects - Only on desktop */}
+      {/* Background Effects */}
       {!isMobile && (
         <div className="absolute inset-0">
           <div 
@@ -54,20 +47,13 @@ const TestimonialsSection = () => {
               background: 'radial-gradient(circle, hsl(210 100% 50% / 0.06) 0%, transparent 50%)',
             }}
           />
-          <div 
-            className="absolute bottom-0 left-0 w-[200px] h-[500px]"
-            style={{ 
-              background: 'linear-gradient(135deg, hsl(210 100% 50% / 0.08) 0%, transparent 100%)',
-              transform: 'skewX(15deg) translateX(-100px)' 
-            }}
-          />
         </div>
       )}
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -81,166 +67,103 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Featured Testimonial */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <AnimatePresence mode="wait">
+        {/* Testimonials Grid - Photo-Focused */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {testimonials.map((testimonial, index) => (
             <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="group"
             >
-                <div 
-                  className="glass-card p-12 border border-border/50 relative overflow-hidden"
-                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%)' }}
-                >
-                  {/* Blue accent lines */}
-                  <div className="absolute top-0 left-0 w-full h-1" style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), hsl(210 100% 50% / 0.5), transparent)' }} />
-                  <div className="absolute top-0 left-0 w-1 h-32" style={{ background: 'hsl(210 100% 50%)' }} />
+              <div 
+                className="relative overflow-hidden bg-background border border-border/30 hover:border-white/30 transition-all duration-500"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
+              >
+                {/* Large Photo */}
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   
-                  {/* Large Quote Icon */}
-                  <Quote className="absolute top-8 right-8 w-24 h-24 text-white/10" />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                   
-                  <div className="flex flex-col lg:flex-row gap-8 items-center">
-                    {/* Image Section */}
-                    <motion.div 
-                      className="relative flex-shrink-0"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div 
-                        className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 overflow-hidden border-4 border-white/30 relative"
-                        style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
-                      >
-                        <OptimizedImage
-                          src={testimonials[activeIndex].image}
-                          alt={testimonials[activeIndex].name}
-                          width={160}
-                          height={160}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      {/* Transformation Badge */}
-                      <motion.div 
-                        className="absolute -bottom-2 -right-2 px-4 py-2 bg-white text-xs font-bold text-background whitespace-nowrap"
-                        style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        {testimonials[activeIndex].transformation}
-                      </motion.div>
+                  {/* Transformation Badge */}
+                  <motion.div 
+                    className="absolute top-4 right-4 px-4 py-2 bg-white text-xs font-bold text-background"
+                    style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {testimonial.transformation}
                   </motion.div>
                   
-                  {/* Content Section */}
-                  <div className="flex-1 text-center lg:text-left">
-                    {/* Stars - Blue */}
-                    <div className="flex gap-1 mb-6 justify-center lg:justify-start">
-                      {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: i * 0.1 }}
-                        >
-                          <Star className="w-6 h-6" style={{ fill: 'hsl(210 100% 60%)', color: 'hsl(210 100% 60%)' }} />
-                        </motion.div>
+                  {/* Quote Icon */}
+                  <Quote className="absolute top-4 left-4 w-8 h-8 text-white/30" />
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-4 h-4" 
+                          style={{ fill: 'hsl(210 100% 60%)', color: 'hsl(210 100% 60%)' }} 
+                        />
                       ))}
                     </div>
                     
                     {/* Quote */}
-                    <p className="text-xl lg:text-2xl text-foreground/90 leading-relaxed mb-8 font-light">
-                      "{testimonials[activeIndex].text}"
+                    <p className="text-white/90 text-sm md:text-base leading-relaxed mb-4 line-clamp-3">
+                      "{testimonial.text}"
                     </p>
                     
                     {/* Author */}
-                    <div>
-                      <p className="text-xl font-display text-foreground tracking-wide">
-                        {testimonials[activeIndex].name}
-                      </p>
-                      <p className="text-muted-foreground">{testimonials[activeIndex].role}</p>
+                    <div className="border-t border-white/20 pt-4">
+                      <p className="text-white font-bold text-lg">{testimonial.name}</p>
+                      <p className="text-white/60 text-sm">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>
+                
+                {/* Blue Accent Line */}
+                <div 
+                  className="absolute bottom-0 left-0 w-full h-1"
+                  style={{ background: 'linear-gradient(90deg, hsl(210 100% 50%), transparent)' }}
+                />
               </div>
             </motion.div>
-          </AnimatePresence>
-          
-          {/* Navigation */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <motion.button
-              onClick={prevTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center transition-all"
-              style={{ clipPath: 'polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px)' }}
-              whileHover={{ scale: 1.1, borderColor: 'hsl(210 100% 50%)', color: 'hsl(210 100% 60%)' }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </motion.button>
-            
-            <div className="flex gap-3">
-              {testimonials.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className="h-2 transition-all duration-300"
-                  style={{ 
-                    width: index === activeIndex ? '2.5rem' : '0.5rem',
-                    background: index === activeIndex ? 'hsl(210 100% 50%)' : 'hsl(0 0% 30%)'
-                  }}
-                  whileHover={{ scale: 1.2 }}
-                />
-              ))}
-            </div>
-            
-            <motion.button
-              onClick={nextTestimonial}
-              className="w-12 h-12 border border-border/50 flex items-center justify-center transition-all"
-              style={{ clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)' }}
-              whileHover={{ scale: 1.1, borderColor: 'hsl(210 100% 50%)', color: 'hsl(210 100% 60%)' }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-          </div>
+          ))}
         </div>
 
-        {/* Mini Cards */}
-        <motion.div 
-          className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
+        {/* Stats Bar */}
+        <motion.div
+          className="mt-16 grid grid-cols-3 gap-4 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
+          {[
+            { value: "+20 mil", label: "Vidas transformadas" },
+            { value: "98%", label: "Taxa de satisfação" },
+            { value: "12", label: "Semanas de resultado" },
+          ].map((stat, index) => (
+            <div 
               key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`p-6 border cursor-pointer transition-all duration-300 ${
-                index === activeIndex 
-                  ? "border-white/50 bg-white/5" 
-                  : "border-border/30 bg-background/50 hover:border-white/30"
-              }`}
-              style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)' }}
-              whileHover={{ y: -5, scale: 1.02 }}
+              className="text-center p-4 border border-border/30"
+              style={{ clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)' }}
             >
-              <div className="flex items-center gap-4">
-                <OptimizedImage
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 object-cover border-2 border-white/20"
-                  style={{ clipPath: 'polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)' }}
-                />
-                <div>
-                  <p className="font-bold text-foreground text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </div>
-            </motion.div>
+              <p className="text-2xl md:text-3xl font-bold" style={{ color: 'hsl(210 100% 60%)' }}>
+                {stat.value}
+              </p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</p>
+            </div>
           ))}
         </motion.div>
       </div>
