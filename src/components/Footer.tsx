@@ -1,10 +1,7 @@
-import { Instagram, Youtube, MessageCircle, ArrowUp, Heart } from "lucide-react";
+import { Instagram, Youtube, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <footer className="py-16 bg-card border-t relative overflow-hidden grain-overlay" style={{ borderColor: 'hsl(210 100% 50% / 0.2)' }}>
@@ -73,41 +70,6 @@ const Footer = () => {
             ))}
           </motion.div>
 
-          {/* Divider */}
-          <div className="w-full max-w-md h-px" style={{ background: 'linear-gradient(90deg, transparent, hsl(210 100% 50% / 0.4), transparent)' }} />
-
-          {/* Copyright & Credits */}
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <p className="text-muted-foreground text-sm font-medium">
-              © 2024 Filipe Nery. Todos os direitos reservados.
-            </p>
-            <p className="text-muted-foreground/60 text-xs mt-2 flex items-center justify-center gap-1">
-              Feito com <Heart className="w-3 h-3" style={{ color: 'hsl(210 100% 60%)', fill: 'hsl(210 100% 60%)' }} /> para transformar vidas
-            </p>
-          </motion.div>
-
-          {/* Back to Top */}
-          <motion.button
-            onClick={scrollToTop}
-            className="w-12 h-12 border bg-background/50 flex items-center justify-center transition-all duration-300"
-            style={{ 
-              borderColor: 'hsl(210 100% 50% / 0.3)',
-              clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' 
-            }}
-            whileHover={{ y: -3, borderColor: 'hsl(210 100% 50%)', backgroundColor: 'hsl(210 100% 50% / 0.1)' }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <ArrowUp className="w-5 h-5" style={{ color: 'hsl(210 100% 60%)' }} />
-          </motion.button>
         </div>
       </div>
     </footer>
