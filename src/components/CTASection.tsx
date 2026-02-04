@@ -1,15 +1,6 @@
-import { ArrowRight, Check, MessageCircle, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-
-const features = [
-  "Avaliação física completa",
-  "Treino 100% personalizado",
-  "Suporte via WhatsApp",
-  "Ajustes semanais do programa",
-  "Dicas de nutrição",
-  "Acesso a grupo VIP",
-];
 
 const CTASection = () => {
   const isMobile = useIsMobile();
@@ -86,29 +77,6 @@ const CTASection = () => {
                 <Zap className="w-8 h-8" style={{ color: 'hsl(210 100% 60%)' }} />
               </motion.div>
 
-              {/* Badge */}
-              <motion.div 
-                className="inline-flex items-center gap-2 px-6 py-3 mb-8 border text-sm font-bold tracking-widest"
-                style={{ 
-                  background: 'hsl(210 100% 50% / 0.15)',
-                  borderColor: 'hsl(210 100% 50% / 0.4)',
-                  color: 'hsl(210 100% 70%)',
-                  clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' 
-                }}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", delay: 0.3 }}
-              >
-                <motion.span 
-                  className="w-2 h-2"
-                  style={{ background: 'hsl(210 100% 60%)' }}
-                  animate={{ scale: [1, 1.5, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
-                VAGAS LIMITADAS - APENAS 10 RESTANTES
-              </motion.div>
-
               {/* Heading */}
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-display text-foreground mb-6 tracking-tight">
                 PRONTO PARA SUA{" "}
@@ -123,96 +91,9 @@ const CTASection = () => {
                 </span>
               </h2>
 
-              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+              <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                 Junte-se a mais de <span className="font-bold" style={{ color: 'hsl(210 100% 60%)' }}>500 pessoas</span> que já transformaram seus corpos e suas vidas com o método Filipe Nery.
               </p>
-
-              {/* Features Grid */}
-              <motion.div 
-                className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-14 text-left max-w-3xl mx-auto"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: { staggerChildren: 0.1 }
-                  }
-                }}
-              >
-                {features.map((feature, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="flex items-center gap-3 p-3 bg-background/50 border transition-colors"
-                    style={{ 
-                      borderColor: 'hsl(210 100% 50% / 0.2)',
-                      clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)' 
-                    }}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                    whileHover={{ x: 5, borderColor: 'hsl(210 100% 50% / 0.5)' }}
-                  >
-                    <div 
-                      className="w-6 h-6 flex items-center justify-center flex-shrink-0"
-                      style={{ 
-                        background: 'hsl(210 100% 50% / 0.2)',
-                        clipPath: 'polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px)' 
-                      }}
-                    >
-                      <Check className="w-3.5 h-3.5" style={{ color: 'hsl(210 100% 60%)' }} />
-                    </div>
-                    <span className="text-sm text-foreground/80 font-medium">{feature}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button 
-                  className="btn-cta text-lg flex items-center justify-center gap-3 relative overflow-hidden group"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.5 }}
-                  />
-                  <MessageCircle className="w-5 h-5" />
-                  FALAR COM FILIPE
-                </motion.button>
-                <motion.button 
-                  className="btn-outline flex items-center justify-center gap-3 text-lg"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  VER PLANOS
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
-              </div>
-
-              {/* Trust Badges */}
-              <motion.div 
-                className="flex flex-wrap justify-center gap-8 mt-12 text-muted-foreground text-sm"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                <span className="flex items-center gap-2 font-medium">
-                  <span className="text-white">⚡</span> Resposta em até 2 horas
-                </span>
-                <span className="flex items-center gap-2 font-medium">
-                  <span className="text-white">🔒</span> Seus dados estão seguros
-                </span>
-                <span className="flex items-center gap-2 font-medium">
-                  <span className="text-white">💳</span> Pagamento seguro
-                </span>
-              </motion.div>
             </div>
           </div>
         </motion.div>
