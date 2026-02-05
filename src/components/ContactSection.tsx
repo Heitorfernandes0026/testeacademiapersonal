@@ -121,6 +121,8 @@ const ContactSection = () => {
                 className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
+                width={400}
+                height={533}
               />
 
               {/* Decorative blue accent lines */}
