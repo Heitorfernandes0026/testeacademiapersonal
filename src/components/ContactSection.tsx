@@ -54,7 +54,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 font-bold text-lg text-white transition-all mb-8"
               style={{
-                background: 'linear-gradient(135deg, hsl(142 70% 45%) 0%, hsl(142 70% 35%) 100%)',
+                background: 'linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)',
                 clipPath: 'polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%)',
               }}
               whileHover={{ scale: 1.05 }}
