@@ -120,7 +120,7 @@ const HeroSection = () => {
 
             {/* CTA Button */}
             <motion.div
-              className="mt-16 md:mt-0"
+              className="mt-32 md:mt-0"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
