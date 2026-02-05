@@ -109,23 +109,23 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Featured Testimonials - 3 cards em destaque */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        {/* Featured Testimonials - Layout com imagem e texto separados */}
+        <div className="space-y-8 md:space-y-12 mb-16">
           {featuredTestimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
               <div 
-                className="relative overflow-hidden bg-background border border-border/30 hover:border-white/30 transition-all duration-500 h-full"
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 lg:gap-10 bg-background border border-border/30 hover:border-white/30 transition-all duration-500 overflow-hidden`}
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
               >
                 {/* Photo */}
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative w-full md:w-2/5 lg:w-1/3 aspect-[3/4] md:aspect-auto md:min-h-[400px] overflow-hidden flex-shrink-0">
                   <img
                     src={testimonial.image}
                     alt={`Transformação de ${testimonial.name}`}
@@ -133,9 +133,6 @@ const TestimonialsSection = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
                   {/* Transformation Badge */}
                   <motion.div 
@@ -148,32 +145,32 @@ const TestimonialsSection = () => {
                   >
                     {testimonial.transformation}
                   </motion.div>
-                  
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
                   {/* Quote Icon */}
-                  <Quote className="absolute top-4 left-4 w-8 h-8 text-white/20" />
+                  <Quote className="w-10 h-10 mb-4" style={{ color: 'hsl(210 100% 50% / 0.3)' }} />
                   
-                  {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    {/* Stars */}
-                    <div className="flex gap-1 mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          className="w-4 h-4" 
-                          style={{ fill: 'hsl(210 100% 60%)', color: 'hsl(210 100% 60%)' }} 
-                        />
-                      ))}
-                    </div>
-                    
-                    {/* Quote */}
-                    <p className="text-white/90 text-sm leading-relaxed mb-4">
-                      "{testimonial.text}"
-                    </p>
-                    
-                    {/* Author */}
-                    <div className="border-t border-white/20 pt-3">
-                      <p className="text-white font-bold">{testimonial.name}</p>
-                    </div>
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className="w-5 h-5" 
+                        style={{ fill: 'hsl(210 100% 60%)', color: 'hsl(210 100% 60%)' }} 
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Quote Text */}
+                  <p className="text-foreground/90 text-base md:text-lg leading-relaxed mb-6">
+                    "{testimonial.text}"
+                  </p>
+                  
+                  {/* Author */}
+                  <div className="border-t border-border/30 pt-4 mt-auto">
+                    <p className="text-foreground font-bold text-lg">{testimonial.name}</p>
                   </div>
                 </div>
                 
