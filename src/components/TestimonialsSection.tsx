@@ -5,6 +5,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 
+import testimonialIsabela from "@/assets/testimonial-isabela.png";
+import testimonialLamara from "@/assets/testimonial-lamara.png";
+import testimonialNatalia from "@/assets/testimonial-natalia.png";
 import testimonial01 from "@/assets/testimonial-01.jpg";
 import testimonial02 from "@/assets/testimonial-02.jpg";
 import testimonial03 from "@/assets/testimonial-03.jpg";
@@ -15,36 +18,36 @@ import testimonial06 from "@/assets/testimonial-06.png";
 // 3 depoimentos em destaque com foto + texto
 const featuredTestimonials = [
   {
-    name: "Marina Costa",
-    role: "Advogada",
-    image: testimonial02,
-    text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional e o Filipe realmente se dedica a entender as necessidades de cada aluno.",
+    name: "Isabela",
+    image: testimonialIsabela,
+    text: "O acompanhamento do Filipe Nery foi importantíssimo no meu processo de mudança, especialmente aliado à reeducação alimentar. Consegui eliminar 16 kg de gordura, e estou aprendendo que a verdadeira transformação vai muito além do número que aparece na balança. Com a orientação dele, não só alcancei ótimos resultados físicos, como também consegui construir hábitos mais saudáveis para a vida. Hoje tenho muito mais constância nos treinos, me sinto mais confiante e com a autoestima melhor.",
     rating: 5,
-    transformation: "-18kg",
+    transformation: "-16kg",
   },
   {
-    name: "Ana Oliveira",
-    role: "Engenheira",
-    image: testimonial04,
-    text: "Transformação completa em apenas 12 semanas. Recomendo para todos que buscam resultados reais e duradouros!",
+    name: "Lamara",
+    image: testimonialLamara,
+    text: "Gostaria de registrar minha satisfação com a evolução obtida durante o acompanhamento com o personal trainer Filipe Nery. Iniciei os treinos apresentando quadro de osteoartrite no joelho, com limitações funcionais e desconfortos recorrentes. Com a aplicação de um planejamento focado em preparo e fortalecimento muscular, respeitando progressões, biomecânica e individualidade física, obtive uma melhora praticamente total do quadro, com ganho de estabilidade, mobilidade e qualidade de vida.",
     rating: 5,
-    transformation: "-12kg",
+    transformation: "Qualidade de vida",
   },
   {
-    name: "Fernanda Lima",
-    role: "Nutricionista",
-    image: testimonial06,
-    text: "Resultados que eu nunca imaginei alcançar. Gratidão por essa transformação incrível na minha vida!",
+    name: "Natália",
+    image: testimonialNatalia,
+    text: "Quero deixar aqui meu feedback e minha gratidão ao meu personal Filipe Nery. Comecei no dia 29/09 e, desde então, a atividade física tem sido essencial na minha vida. Já consegui perder várias medidas e, no total, 8kg, o que mostra o quanto o trabalho está sendo bem feito e os resultados são reais. Mais do que estética, o exercício tem me feito um bem enorme: melhorou meu condicionamento, minha saúde, minha disposição e, principalmente, minha qualidade de vida.",
     rating: 5,
-    transformation: "Transformação total",
+    transformation: "-8kg",
   },
 ];
 
 // Fotos para o carrossel (apenas imagens, sem texto)
 const carouselPhotos = [
   testimonial01,
+  testimonial02,
   testimonial03,
+  testimonial04,
   testimonial05,
+  testimonial06,
 ];
 
 const TestimonialsSection = () => {
@@ -170,7 +173,6 @@ const TestimonialsSection = () => {
                     {/* Author */}
                     <div className="border-t border-white/20 pt-3">
                       <p className="text-white font-bold">{testimonial.name}</p>
-                      <p className="text-white/60 text-sm">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>
