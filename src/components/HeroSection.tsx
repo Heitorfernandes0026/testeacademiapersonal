@@ -14,10 +14,9 @@ const HeroSection = () => {
       <img 
         src={heroBackground}
         alt="Personal Trainer"
-        className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover"
+        className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover md:object-cover object-[70%_top]"
         style={{ 
           imageRendering: 'auto',
-          objectPosition: 'center 20%',
           contentVisibility: 'auto',
         }}
         fetchPriority="high"
@@ -28,15 +27,15 @@ const HeroSection = () => {
       />
       
       {/* Subtle overlay gradient for text readability */}
-      <div className="absolute top-20 left-0 right-0 bottom-0 bg-gradient-to-r from-background/50 via-background/20 to-transparent" />
+      <div className="absolute top-20 left-0 right-0 bottom-0 bg-gradient-to-b md:bg-gradient-to-r from-background/80 via-background/40 to-transparent md:from-background/50 md:via-background/20" />
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
-        <div className="min-h-screen flex items-end md:items-center pb-32 md:pb-20 pt-20">
+        <div className="min-h-screen flex items-start md:items-center pt-8 md:py-20">
           
           {/* Content - Left aligned */}
           <motion.div 
-            className="max-w-2xl bg-background/60 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none backdrop-blur-sm md:backdrop-blur-none"
+            className="max-w-2xl"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -55,7 +54,7 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.95] tracking-tight mb-3 md:mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display leading-[0.95] tracking-tight mb-3 md:mb-6">
               <span className="text-white">AQUI É </span>
               <span style={{ color: 'hsl(210 100% 60%)' }}>LUGAR</span>
               <br />
@@ -74,7 +73,7 @@ const HeroSection = () => {
 
             {/* Impact Messages */}
             <motion.div 
-              className="mb-6 md:mb-10 space-y-4"
+              className="mb-4 md:mb-10 space-y-3 md:space-y-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -101,8 +100,8 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Arrow indicators with gradient */}
-              <div className="flex gap-2 mt-6">
+              {/* Arrow indicators with gradient - hidden on mobile */}
+              <div className="hidden md:flex gap-2 mt-6">
                 {[0, 1, 2].map((i) => (
                   <motion.div 
                     key={i}
