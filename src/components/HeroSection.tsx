@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section id="inicio" className="min-h-screen relative overflow-hidden pt-20 bg-background">
       
-      {/* Full Background Image - High Quality */}
+      {/* Full Background Image - High Quality with preload */}
       <img 
         src={heroBackground}
         alt="Personal Trainer"
@@ -18,9 +18,13 @@ const HeroSection = () => {
         style={{ 
           imageRendering: 'auto',
           objectPosition: 'center 5%',
+          contentVisibility: 'auto',
         }}
         fetchPriority="high"
         decoding="async"
+        loading="eager"
+        width={1920}
+        height={1080}
       />
       
       {/* Subtle overlay gradient for text readability */}

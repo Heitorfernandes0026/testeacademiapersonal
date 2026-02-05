@@ -121,7 +121,7 @@ const BenefitsSection = () => {
               key={index}
               variants={cardVariants}
               className="group relative"
-              whileHover={{ y: -8, scale: 1.02 }}
+              whileHover={isMobile ? undefined : { y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               {/* Card Glow on Hover */}

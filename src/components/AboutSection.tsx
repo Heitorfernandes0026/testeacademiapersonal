@@ -58,6 +58,9 @@ const AboutSection = () => {
                         alt={`Filipe Nery ${index + 1}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        decoding="async"
+                        width={400}
+                        height={533}
                       />
                       {/* Overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

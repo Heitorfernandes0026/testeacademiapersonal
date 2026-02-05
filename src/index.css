@@ -209,9 +209,10 @@
 
   .animate-marquee {
     animation: marquee 20s linear infinite;
+    will-change: transform;
   }
 
-  /* Reduce motion for accessibility */
+  /* Reduce motion for accessibility and mobile performance */
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee,
     .electric-text,
@@ -220,4 +221,21 @@
       animation: none;
     }
   }
+  
+  /* Optimize animations on mobile */
+  @media (max-width: 768px) {
+    .animate-float {
+      animation: none;
+    }
+    
+    .animate-pulse-glow {
+      animation: none;
+    }
+  }
+}
+
+/* Critical content-visibility for below-the-fold sections */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }

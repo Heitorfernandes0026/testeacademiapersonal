@@ -56,6 +56,10 @@ const Header = () => {
               src={logoImage} 
               alt="Filipe Nery Logo" 
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              loading="eager"
+              decoding="async"
+              width={48}
+              height={48}
             />
             <span className="text-xl font-display tracking-wide text-foreground">
               FILIPE <span className="text-muted-foreground">NERY</span>
