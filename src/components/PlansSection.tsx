@@ -210,8 +210,11 @@ const PlansSection = () => {
                       ))}
                     </div>
 
-                    <motion.button
-                      className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all mt-auto"
+                    <motion.a
+                      href="https://wa.me/5531989196115?text=Olá! Tenho interesse no plano de Consultoria Online."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all mt-auto text-center block"
                       style={{
                         background: 'linear-gradient(90deg, hsl(210 100% 45%) 0%, hsl(210 100% 55%) 100%)',
                         boxShadow: '0 4px 20px hsl(210 100% 50% / 0.3)',
@@ -223,7 +226,7 @@ const PlansSection = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       {plan.buttonText}
-                    </motion.button>
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>
@@ -350,8 +353,11 @@ const PlansSection = () => {
                   </p>
                 </div>
 
-                <motion.button
-                  className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all"
+                <motion.a
+                  href="https://wa.me/5531989196115?text=Olá! Tenho interesse em agendar uma aula avulsa."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 px-6 rounded-lg font-bold text-white text-base tracking-wide transition-all text-center block"
                   style={{
                     background: 'linear-gradient(90deg, hsl(210 100% 45%) 0%, hsl(210 100% 55%) 100%)',
                     boxShadow: '0 4px 20px hsl(210 100% 50% / 0.3)',
@@ -363,7 +369,7 @@ const PlansSection = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   AGENDAR AULA AVULSA
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           </div>
