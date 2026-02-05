@@ -163,6 +163,32 @@ const BenefitsSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <motion.a
+            href="#planos"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#planos")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-3 px-8 py-4 font-bold text-lg text-white transition-all"
+            style={{
+              background: 'linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)',
+              clipPath: 'polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%)',
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            QUERO ESTE MÉTODO
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
