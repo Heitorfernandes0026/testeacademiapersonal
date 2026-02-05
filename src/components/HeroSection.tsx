@@ -14,10 +14,10 @@ const HeroSection = () => {
       <img 
         src={heroBackground}
         alt="Personal Trainer"
-        className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover md:object-center"
+        className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover"
         style={{ 
           imageRendering: 'auto',
-          objectPosition: 'center 15%',
+          objectPosition: 'center 5%',
         }}
         fetchPriority="high"
         decoding="async"

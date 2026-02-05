@@ -125,11 +125,11 @@ const TestimonialsSection = () => {
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
               >
                 {/* Photo */}
-                <div className="relative w-full md:w-2/5 lg:w-1/3 aspect-[4/5] sm:aspect-[3/4] md:aspect-auto md:min-h-[400px] overflow-hidden flex-shrink-0">
+                <div className="relative w-full md:w-2/5 lg:w-1/3 aspect-[3/4] md:aspect-auto md:min-h-[400px] overflow-hidden flex-shrink-0">
                   <img
                     src={testimonial.image}
                     alt={`Transformação de ${testimonial.name}`}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
