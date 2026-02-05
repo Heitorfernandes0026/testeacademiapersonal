@@ -1,6 +1,9 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useCallback, useEffect, useState } from "react";
 
 import testimonial01 from "@/assets/testimonial-01.jpg";
 import testimonial02 from "@/assets/testimonial-02.jpg";
@@ -8,59 +11,66 @@ import testimonial03 from "@/assets/testimonial-03.jpg";
 import testimonial04 from "@/assets/testimonial-04.jpg";
 import testimonial05 from "@/assets/testimonial-05.jpg";
 import testimonial06 from "@/assets/testimonial-06.png";
-const testimonials = [
-  {
-    name: "Lucas Silva",
-    role: "Empresário",
-    image: testimonial01,
-    text: "Em 3 meses perdi 15kg e ganhei massa muscular. O Filipe mudou minha vida completamente.",
-    rating: 5,
-    transformation: "-15kg",
-  },
+
+// 3 depoimentos em destaque com foto + texto
+const featuredTestimonials = [
   {
     name: "Marina Costa",
     role: "Advogada",
     image: testimonial02,
-    text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional.",
+    text: "Nunca imaginei que conseguiria resultados tão rápidos. O acompanhamento é excepcional e o Filipe realmente se dedica a entender as necessidades de cada aluno.",
     rating: 5,
     transformation: "-18kg",
-  },
-  {
-    name: "Pedro Santos",
-    role: "Médico",
-    image: testimonial03,
-    text: "Profissional incrível! Mesmo com minha rotina corrida, consegui ver resultados impressionantes.",
-    rating: 5,
-    transformation: "Definição total",
   },
   {
     name: "Ana Oliveira",
     role: "Engenheira",
     image: testimonial04,
-    text: "Transformação completa em apenas 12 semanas. Recomendo para todos!",
+    text: "Transformação completa em apenas 12 semanas. Recomendo para todos que buscam resultados reais e duradouros!",
     rating: 5,
     transformation: "-12kg",
-  },
-  {
-    name: "Carlos Mendes",
-    role: "Professor",
-    image: testimonial05,
-    text: "Método eficiente e resultados reais. Melhor investimento que já fiz.",
-    rating: 5,
-    transformation: "+8kg músculo",
   },
   {
     name: "Fernanda Lima",
     role: "Nutricionista",
     image: testimonial06,
-    text: "Resultados que eu nunca imaginei alcançar. Gratidão por essa transformação!",
+    text: "Resultados que eu nunca imaginei alcançar. Gratidão por essa transformação incrível na minha vida!",
     rating: 5,
     transformation: "Transformação total",
   },
 ];
 
+// Fotos para o carrossel (apenas imagens, sem texto)
+const carouselPhotos = [
+  testimonial01,
+  testimonial03,
+  testimonial05,
+];
+
 const TestimonialsSection = () => {
   const isMobile = useIsMobile();
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="py-20 md:py-32 bg-card relative overflow-hidden">
@@ -92,27 +102,27 @@ const TestimonialsSection = () => {
             HISTÓRIAS DE <span style={{ color: 'hsl(210 100% 60%)' }}>SUCESSO</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Resultados reais de alunos que transformaram seus corpos e suas vidas
+            Resultados reais de alunas que transformaram seus corpos e suas vidas
           </p>
         </motion.div>
 
-        {/* Testimonials Grid - Before/After Focus */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {testimonials.map((testimonial, index) => (
+        {/* Featured Testimonials - 3 cards em destaque */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {featuredTestimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group"
             >
               <div 
-                className="relative overflow-hidden bg-background border border-border/30 hover:border-white/30 transition-all duration-500"
+                className="relative overflow-hidden bg-background border border-border/30 hover:border-white/30 transition-all duration-500 h-full"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
               >
-                {/* Before/After Photo */}
-                <div className="relative aspect-[4/5] overflow-hidden">
+                {/* Photo */}
+                <div className="relative aspect-[3/4] overflow-hidden">
                   <img
                     src={testimonial.image}
                     alt={`Transformação de ${testimonial.name}`}
@@ -122,7 +132,7 @@ const TestimonialsSection = () => {
                   />
                   
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   
                   {/* Transformation Badge */}
                   <motion.div 
@@ -153,7 +163,7 @@ const TestimonialsSection = () => {
                     </div>
                     
                     {/* Quote */}
-                    <p className="text-white/90 text-sm leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-white/90 text-sm leading-relaxed mb-4">
                       "{testimonial.text}"
                     </p>
                     
@@ -174,6 +184,71 @@ const TestimonialsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Photo Carousel - Apenas fotos */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="relative"
+        >
+          <h3 className="text-center text-lg font-semibold text-muted-foreground mb-8 uppercase tracking-wider">
+            Mais Transformações
+          </h3>
+          
+          <div className="relative max-w-4xl mx-auto">
+            {/* Carousel Container */}
+            <div ref={emblaRef} className="overflow-hidden">
+              <div className="flex gap-4">
+                {carouselPhotos.map((photo, index) => (
+                  <div 
+                    key={index} 
+                    className="flex-[0_0_280px] md:flex-[0_0_320px]"
+                  >
+                    <div 
+                      className="relative aspect-[3/4] overflow-hidden group"
+                      style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)' }}
+                    >
+                      <img
+                        src={photo}
+                        alt={`Transformação ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Blue border on hover */}
+                      <div 
+                        className="absolute inset-0 border-2 border-transparent group-hover:border-[hsl(210_100%_50%)] transition-colors duration-300"
+                        style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={scrollPrev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 flex items-center justify-center bg-background/80 border border-border/50 hover:border-[hsl(210_100%_50%)] transition-colors duration-300 disabled:opacity-30"
+              style={{ clipPath: 'polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%)' }}
+              disabled={!canScrollPrev}
+            >
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 flex items-center justify-center bg-background/80 border border-border/50 hover:border-[hsl(210_100%_50%)] transition-colors duration-300 disabled:opacity-30"
+              style={{ clipPath: 'polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%)' }}
+              disabled={!canScrollNext}
+            >
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
+          </div>
+        </motion.div>
 
         {/* Stats Bar */}
         <motion.div
