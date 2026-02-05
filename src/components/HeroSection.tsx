@@ -17,7 +17,7 @@ const HeroSection = () => {
         className="absolute top-20 left-0 right-0 bottom-0 w-full h-[calc(100%-5rem)] object-cover"
         style={{ 
           imageRendering: 'auto',
-          objectPosition: 'center 5%',
+          objectPosition: 'center 20%',
           contentVisibility: 'auto',
         }}
         fetchPriority="high"
@@ -32,11 +32,11 @@ const HeroSection = () => {
 
       {/* Main Container */}
       <div className="container mx-auto px-6 lg:px-12 min-h-screen relative z-10">
-        <div className="min-h-screen flex items-center py-20">
+        <div className="min-h-screen flex items-end md:items-center pb-32 md:pb-20 pt-20">
           
           {/* Content - Left aligned */}
           <motion.div 
-            className="max-w-2xl"
+            className="max-w-2xl bg-background/60 md:bg-transparent p-4 md:p-0 rounded-lg md:rounded-none backdrop-blur-sm md:backdrop-blur-none"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -55,7 +55,7 @@ const HeroSection = () => {
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.9] tracking-tight mb-4 md:mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display leading-[0.95] tracking-tight mb-3 md:mb-6">
               <span className="text-white">AQUI É </span>
               <span style={{ color: 'hsl(210 100% 60%)' }}>LUGAR</span>
               <br />
@@ -82,8 +82,8 @@ const HeroSection = () => {
               <div className="flex flex-col gap-4">
                 {/* Main tagline with white and blue */}
                 <div className="flex items-start gap-3 md:gap-4">
-                  <div className="w-1 h-12 md:h-16 mt-1 flex-shrink-0" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
-                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
+                  <div className="w-1 h-10 md:h-16 mt-1 flex-shrink-0" style={{ background: 'linear-gradient(180deg, hsl(210 100% 50%) 0%, hsl(210 100% 35%) 100%)' }} />
+                  <p className="text-base sm:text-lg md:text-2xl lg:text-3xl font-bold tracking-wide leading-tight">
                     <span className="text-white">Treinos estratégicos para </span>
                     <span style={{ color: 'hsl(210 100% 60%)' }}>transformar seu corpo</span>
                     <span className="text-white"> em até </span>
