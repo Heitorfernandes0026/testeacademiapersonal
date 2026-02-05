@@ -170,6 +170,28 @@ const CTASection = () => {
                     </motion.div>
                   )}
                 </div>
+
+                {/* CTA Button after video */}
+                <motion.a
+                  href="#planos"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#planos")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="mt-8 inline-flex items-center justify-center px-10 py-4 font-bold text-white text-lg tracking-wide transition-all"
+                  style={{
+                    background: 'linear-gradient(90deg, hsl(210 100% 45%) 0%, hsl(210 100% 55%) 100%)',
+                    boxShadow: '0 4px 20px hsl(210 100% 50% / 0.3)',
+                    clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: '0 6px 30px hsl(210 100% 50% / 0.4)',
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  QUERO MINHA TRANSFORMAÇÃO
+                </motion.a>
               </motion.div>
             </div>
           </div>

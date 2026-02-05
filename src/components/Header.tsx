@@ -67,10 +67,10 @@ const Header = () => {
               </motion.a>
             ))}
             <motion.a
-              href="#contato"
+              href="#planos"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("#contato");
+                scrollToSection("#planos");
               }}
               className="px-6 py-2.5 bg-foreground text-background text-sm font-bold uppercase tracking-widest hover:bg-muted-foreground transition-colors"
               style={{ clipPath: 'polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%)' }}
@@ -113,10 +113,10 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="#contato"
+              href="#planos"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("#contato");
+                scrollToSection("#planos");
               }}
               className="px-6 py-3 bg-foreground text-background text-sm font-bold uppercase tracking-widest text-center mt-2"
               style={{ clipPath: 'polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%)' }}

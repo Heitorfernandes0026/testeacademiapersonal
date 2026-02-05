@@ -121,7 +121,12 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.button 
+              <motion.a 
+                href="#planos"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#planos")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="text-lg flex items-center gap-4 group relative px-8 py-4 font-bold bg-white text-background hover:bg-white/90 transition-all"
                 style={{ 
                   clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
@@ -138,7 +143,7 @@ const HeroSection = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.5 }}
                 />
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
